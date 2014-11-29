@@ -1,0 +1,12 @@
+name = Node Comment Block
+description = Moves the comments for a node into a block.
+core = 7.x
+dependencies[] = block
+dependencies[] = comment
+
+; Information added by drupal.org packaging script on 2013-01-12
+version = "7.x-1.0"
+core = "7.x"
+project = "node_comment_block"
+datestamp = "1357950348"
+

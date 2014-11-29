@@ -1,0 +1,9 @@
+#webform-default-selecor{
+  width:900px;
+  background-color:#ccc;
+  line-height:24px;
+}
+
+#webform-default-selecor #edit-webform {
+  width:300px;
+}

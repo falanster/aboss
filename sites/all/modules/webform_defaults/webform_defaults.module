@@ -1,0 +1,208 @@
+<?php
+/**
+ * Created by JetBrains PhpStorm.
+ * User: Nico Heulsen
+ * Date: 30/01/13
+ * Time: 12:36
+ */
+
+/**
+ * Implementation of hook_perm().
+ *
+ * @return array
+ */
+function webform_defaults_permission() {
+  return array(
+    'administer webform defaults' => array(
+      'title' => t('Administer webform default settings'),
+      'description' => t('Administer the default webform settings.'),
+    ),
+    'clone webform fields' => array(
+      'title' => t('Clone webform fields'),
+      'description' => t('Grants access to duplicate fields of another webform.'),
+    ),
+  );
+}
+
+/**
+ * Implementation of hook_menu().
+ *
+ * @return array
+ */
+function webform_defaults_menu() {
+  $items = array();
+
+  $items['admin/webform/defaults/autocomplete_js/%'] = array(
+    'title' => 'Webform defaults autocomplete',
+    'page callback' => 'webform_defaults_autocomplete_js',
+    'page arguments' => array(4),
+    'access arguments' => array('clone webform fields'),
+    'type' => MENU_CALLBACK
+  );
+
+
+  return $items;
+}
+
+/**
+ * Implementation of hook_menu_alter().
+ *
+ * @param $items
+ */
+function webform_defaults_menu_alter(&$items) {
+  $items['node/%webform_menu/webform']['page callback'] = 'webform_defaults_webform_components_page';
+  $items['node/%webform_menu/webform/components']['page callback'] = 'webform_defaults_webform_components_page';
+}
+
+/**
+ * Implementation of hook_theme().
+ *
+ * @param $existing
+ * @param $type
+ * @param $theme
+ * @param $path
+ * @return array
+ */
+function webform_defaults_theme($existing, $type, $theme, $path) {
+  return array(
+    'webform_defaults_components_page' => array(
+      'variables' => array('node' => NULL, 'selector_form' => NULL, 'components_form' => NULL),
+      'file' => 'includes/webform_defaults.theme.inc',
+    ),
+    'webform_defaults_selector_form_table' => array(
+      'render element' => 'form',
+      'file' => 'includes/webform_defaults.theme.inc'
+    ),
+  );
+}
+
+/**
+ * Override of webform_components_page to add our form
+ *
+ * @param $node
+ * @return string
+ */
+function webform_defaults_webform_components_page($node) {
+  $components_form = drupal_get_form('webform_components_form', $node);
+  $selector_form =  drupal_get_form('webform_defaults_webform_selection_form', $node);
+
+  return theme('webform_defaults_components_page', array('node' => $node, 'selector_form' => $selector_form, 'components_form' => $components_form));
+}
+
+
+/**
+ * Webform selection form
+ *
+ * @param $form_state
+ * @param $node
+ * @return array
+ */
+function webform_defaults_webform_selection_form($form, &$form_state, $node) {
+  drupal_add_css(drupal_get_path('module', 'webform_defaults') .'/css/webform-defaults.css');
+
+  $form = array();
+  $options = webform_defaults_fetch_all_webforms($node);
+
+  if (count($options) > 25) {
+    $form['webform_defaults']['webform'] = array(
+      '#type' => 'textfield',
+      '#title' => '',
+      '#autocomplete_path' => 'admin/webform/defaults/autocomplete_js',
+    );
+
+    $form['webform_defaults']['select_type'] = array(
+      '#type' => 'value',
+      '#value' => 'search',
+    );
+  }
+  else{
+    $form['webform_defaults']['webform'] = array(
+      '#type' => 'select',
+      '#title' => '',
+      '#options' => $options,
+    );
+
+    $form['webform_defaults']['select_type'] = array(
+      '#type' => 'value',
+      '#value' => 'select',
+    );
+  }
+
+  $form['webform_defaults']['node'] = array(
+    '#type' => 'value',
+    '#value' => $node,
+  );
+
+  $form['webform_defaults']['#theme'] = array('webform_defaults_selector_form_table');
+
+  $form['webform_defaults']['submit'] = array(
+    '#type' => 'submit',
+    '#value' => t('Attach fields'),
+  );
+
+  return $form;
+}
+
+/**
+ * Submithandler to attach fields on webform
+ *
+ * @param $form
+ * @param $form_state
+ */
+function webform_defaults_webform_selection_form_submit(&$form, &$form_state) {
+  $webform = null;
+  if ($form_state['values']['select_type'] == 'search') {
+    $matches = array();
+    preg_match('/\[nid: (.*)\]/', $form_state['values']['webform'], $matches);
+    if (!empty($matches) && !empty($matches[1]) && is_numeric($matches[1])) {
+      $webform = node_load($matches[1]);
+    }
+  }
+  else{
+    $webform = node_load($form_state['values']['webform']);
+  }
+
+  $node = $form_state['values']['node'];
+  if (count($webform->webform['components']) > 0) {
+    webform_ensure_record($node);
+  }
+
+  foreach ((array)$webform->webform['components'] as $item) {
+    $item['nid'] = $form_state['values']['node']->nid;
+
+    unset($item['cid']);
+    $item['cid'] = webform_component_insert($item);
+  }
+}
+
+/**
+ * Returns all webform objects (except for the node given).
+ *
+ * @param $node
+ * @return array
+ */
+function webform_defaults_fetch_all_webforms($node = NULL) {
+  $data = array();
+  $result = db_query('SELECT * FROM {node} n JOIN {webform} w ON n.nid = w.nid');
+
+  while($item = $result->fetchAssoc()) {
+    if ($item['nid'] != $node->nid) {
+      $data[$item['nid']] = $item['title'];
+    }
+  }
+
+  drupal_alter('default_webforms', $data);
+
+  return $data;
+}
+
+function webform_defaults_autocomplete_js($string) {
+  $data = array();
+  $result = db_query('SELECT * FROM {node} n JOIN {webform} w ON n.nid = w.nid WHERE n.title LIKE "%%%s%%" LIMIT 20', $string);
+  while ($item = $result->fetchAssoc()) {
+    $match = $item['title'] . ' [nid: '. $item['nid'] . ']';
+    $data[$match] = $match;
+  }
+
+  return drupal_json($data);
+}

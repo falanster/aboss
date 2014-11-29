@@ -1,0 +1,58 @@
+; All the dates reported here are referred to UTC.
+
+yandex_metrics 7.x-1.x, xxxx-xx-xx
+
+
+yandex_metrics 7.x-1.6, 2013-07-08
+#1912764 by konstantin.komelin: Fixed reason of strict warning: Only variables should be passed by reference.
+#1561192 by konstantin.komelin, duozersk | info999: Fixed incompatibility with Overlay.
+
+
+yandex_metrics 7.x-1.5, 2013-02-20
+by konstantin.komelin: Some improvements.
+
+
+yandex_metrics 7.x-1.4, 2012-12-09
+#1740446 by konstantin.komelin, Vydrin_AP: Fixed watchdog parameter list.
+#1541560 by konstantin.komelin: Fixed displaying of AJAX reports in case Clean URLs are disabled.
+#1844200 by kalabro: Fixed color scheme settings for Traffic Sources chart.
+
+
+yandex_metrics 7.x-1.3, 2012-04-08
+#1428960 by konstantin.komelin: Added helpful descriptions via hook_help.
+#1477528 by konstantin.komelin: Renamed 'Views' text string.
+#1487828 by konstantin.komelin: Turned off automatic redirect from counter settings page to authorization settings page.
+#1488624 by konstantin.komelin: Replaced error message with watchdog record in Cron. Added saving counter ID to variables.
+
+
+yandex_metrics 7.x-1.2, 2011-12-07
+#1337922 by konstantin.komelin: Added 'Geography of Visits' chart.
+#1340000 by konstantin.komelin: Added support of internationalized domain names.
+#1361496 by konstantin.komelin: Fixed fatal error in cron because of deprecated taxonomy_get_term() call.
+#1362710 by konstantin.komelin: Added settings to show/hide reports.
+
+
+yandex_metrics 7.x-1.1, 2011-10-15
+#1293278 by konstantin.komelin: Added support of client_secret parameter.
+#1293272 by konstantin.komelin: Fixed bug with tracking code displaying.
+#1279362 by konstantin.komelin: Added option to use AJAX on Summary Report page.
+#1275566 by alextataurov: Added Popular Content block.
+
+
+yandex_metrics 7.x-1.0, 2011-07-18
+#1215320 by konstantin.komelin: Initial porting to D7.
+by konstantin.komelin: Wrapped some strings into t().
+
+
+yandex_metrics 6.x-1.1, 2011-07-08
+-------------------------------------
+by konstantin.komelin: Minor fix in README.txt.
+#1205922 by konstantin.komelin: Fixed bug: Unable to save empty counter code.
+#1206680 by konstantin.komelin: Made URLs clickable in the Popular content table.
+#1206268 by konstantin.komelin: Fixed bug; added support of site mirrors for counter. 
+#1208062 by alex.sorokin.v: Added role specific tracking settings.
+
+
+yandex_metrics 6.x-1.0, 2011-06-27
+-------------------------------------
+First release of the module.

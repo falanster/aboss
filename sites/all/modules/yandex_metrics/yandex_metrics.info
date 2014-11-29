@@ -1,0 +1,11 @@
+core            = "7.x"
+description     = "Yandex.Metrics Integration."
+name            = "Yandex.Metrics"
+dependencies[]  = chart
+
+; Information added by drupal.org packaging script on 2013-07-08
+version = "7.x-1.6"
+core = "7.x"
+project = "yandex_metrics"
+datestamp = "1373274656"
+

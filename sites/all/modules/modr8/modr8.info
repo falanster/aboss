@@ -1,0 +1,14 @@
+name = Modr8
+description = Easy, dedicated moderation of content
+core = 7.x
+configure = admin/config/system/modr8
+files[] = modr8_admin.inc
+files[] = modr8.install
+files[] = modr8.module
+
+; Information added by drupal.org packaging script on 2012-06-21
+version = "7.x-1.x-dev"
+core = "7.x"
+project = "modr8"
+datestamp = "1340238289"
+

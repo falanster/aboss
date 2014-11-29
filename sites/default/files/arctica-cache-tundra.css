@@ -1,0 +1,353 @@
+
+
+body { font-family: Arial, Helvetica, "Nimbus Sans L", "Liberation Sans", "FreeSans", sans-serif; }
+h1,h2,h3,h4,h5,h6, legend, .slogan, .views-field-title { font-family: Arial, Helvetica, "Nimbus Sans L", "Liberation Sans", "FreeSans", sans-serif; }
+.primary-menu { font-family: Arial, Helvetica, "Nimbus Sans L", "Liberation Sans", "FreeSans", sans-serif; }
+.site { font-family: Arial, Helvetica, "Nimbus Sans L", "Liberation Sans", "FreeSans", sans-serif; }
+
+
+body .primary-menu ul ul {width:200px;}
+body .primary-menu ul.menu ul.menu li {width:200px;}
+body .primary-menu ul ul ul {margin-left:200px;}
+@media screen {
+  .mast { width: 100%; }
+  .mast { max-width: 960px; }
+  *[class|=grid], .block { padding: 10px 10px; }
+  .boxed, .arctica-rounded { margin: 0 10px 20px 10px; }
+  .arctica-icon-block  .block-icon { left: 10px; top: 10px; }
+  .two-sidebars .main {width:60%; margin-left:20%; margin-right:20%; } 
+  .sidebar-first .main {width:80%; margin-left:20%; margin-right:0; } 
+  .sidebar-second .main {width:80%; margin-right:20%; margin-left:0; } 
+  .region-sidebar-first {width: 20%; margin-left: -100%; margin-right:0; } 
+  .region-sidebar-second {width: 20%; margin-left: -20%; } 
+
+  /**
+   * Grid Widths
+   */
+
+  .grid-100-media-1 {width:100%; float:left;}
+  .grid-3-4-media-1 {width:75%; float:left;}
+  .grid-2-3-media-1 {width:66.65%; float:left;}
+  .grid-1-2-media-1 {width:50%; float:left;}
+  .grid-1-3-media-1 {width:33.32%; float:left;}
+  .grid-1-4-media-1 {width:25%; float:left;}
+  .grid-1-5-media-1 {width:20%; float:left;}
+  .grid-1-6-media-1 {width:16.65%; float:left;}
+  .grid-1-8-media-1 {width:12.5%; float:left;}
+  .grid-phi-media-1 {width:61.8%; float:left;}
+  .grid-phi2-media-1 {width:38.2%; float:left;}
+  .grid-phi3-media-1 {width:23.6%; float:left;}
+
+  /**
+   * Clear Styles
+   */
+
+  .media-1-clear-both {clear:both;}
+  .media-1-clear-left {clear:left;}
+  .media-1-clear-right {clear:right;}
+  .media-1-clear-none {clear:none;}
+
+  /**
+   * Prefill Styles
+   */
+
+  .grid-prefill-3-4-media-1 {padding-left:75%; float:left;}
+  .grid-prefill-2-3-media-1 {padding-left:66.65%; float:left;}
+  .grid-prefill-1-2-media-1 {padding-left:50%; float:left;}
+  .grid-prefill-1-3-media-1 {padding-left:33.32%; float:left;}
+  .grid-prefill-1-4-media-1 {padding-left:25%; float:left;}
+  .grid-prefill-1-5-media-1 {padding-left:20%; float:left;}
+  .grid-prefill-1-6-media-1 {padding-left:16.65%; float:left;}
+  .grid-prefill-1-8-media-1 {padding-left:12.5%; float:left;}
+  .grid-prefill-phi-media-1 {padding-left:61.8%; float:left;}
+  .grid-prefill-phi2-media-1 {padding-left:38.2%; float:left;}
+  .grid-prefill-phi3-media-1 {padding-left:23.6%; float:left;}
+
+  /**
+   * Postfill Styles
+   */
+
+  .grid-postfill-3-4-media-1 {padding-right:75%; float:left;}
+  .grid-postfill-2-3-media-1 {padding-right:66.65%; float:left;}
+  .grid-postfill-1-2-media-1 {padding-right:50%; float:left;}
+  .grid-postfill-1-3-media-1 {padding-right:33.32%; float:left;}
+  .grid-postfill-1-4-media-1 {padding-right:25%; float:left;}
+  .grid-postfill-1-5-media-1 {padding-right:20%; float:left;}
+  .grid-postfill-1-6-media-1 {padding-right:16.65%; float:left;}
+  .grid-postfill-1-8-media-1 {padding-right:12.5%; float:left;}
+  .grid-postfill-phi-media-1 {padding-right:61.8%; float:left;}
+  .grid-postfill-phi2-media-1 {padding-right:38.2%; float:left;}
+  .grid-postfill-phi3-media-1 {padding-right:23.6%; float:left;}
+}
+@media screen and (max-width:1024px) {
+  .mast { width: 100%; }
+  .mast { max-width: 960px; }
+  *[class|=grid], .block { padding: 10px 10px; }
+  .boxed, .arctica-rounded { margin: 0 10px 20px 10px; }
+  .arctica-icon-block  .block-icon { left: 10px; top: 10px; }
+  .two-sidebars .main {width:60%; margin-left:20%; margin-right:20%; } 
+  .sidebar-first .main {width:80%; margin-left:20%; margin-right:0; } 
+  .sidebar-second .main {width:80%; margin-right:20%; margin-left:0; } 
+  .region-sidebar-first {width: 20%; margin-left: -100%; margin-right:0; } 
+  .region-sidebar-second {width: 20%; margin-left: -20%; } 
+
+  /**
+   * Grid Widths
+   */
+
+  .grid-100-media-2 {width:100%; float:left;}
+  .grid-3-4-media-2 {width:75%; float:left;}
+  .grid-2-3-media-2 {width:66.65%; float:left;}
+  .grid-1-2-media-2 {width:50%; float:left;}
+  .grid-1-3-media-2 {width:33.32%; float:left;}
+  .grid-1-4-media-2 {width:25%; float:left;}
+  .grid-1-5-media-2 {width:20%; float:left;}
+  .grid-1-6-media-2 {width:16.65%; float:left;}
+  .grid-1-8-media-2 {width:12.5%; float:left;}
+  .grid-phi-media-2 {width:61.8%; float:left;}
+  .grid-phi2-media-2 {width:38.2%; float:left;}
+  .grid-phi3-media-2 {width:23.6%; float:left;}
+
+  /**
+   * Clear Styles
+   */
+
+  .media-2-clear-both {clear:both;}
+  .media-2-clear-left {clear:left;}
+  .media-2-clear-right {clear:right;}
+  .media-2-clear-none {clear:none;}
+
+  /**
+   * Prefill Styles
+   */
+
+  .grid-prefill-3-4-media-2 {padding-left:75%; float:left;}
+  .grid-prefill-2-3-media-2 {padding-left:66.65%; float:left;}
+  .grid-prefill-1-2-media-2 {padding-left:50%; float:left;}
+  .grid-prefill-1-3-media-2 {padding-left:33.32%; float:left;}
+  .grid-prefill-1-4-media-2 {padding-left:25%; float:left;}
+  .grid-prefill-1-5-media-2 {padding-left:20%; float:left;}
+  .grid-prefill-1-6-media-2 {padding-left:16.65%; float:left;}
+  .grid-prefill-1-8-media-2 {padding-left:12.5%; float:left;}
+  .grid-prefill-phi-media-2 {padding-left:61.8%; float:left;}
+  .grid-prefill-phi2-media-2 {padding-left:38.2%; float:left;}
+  .grid-prefill-phi3-media-2 {padding-left:23.6%; float:left;}
+
+  /**
+   * Postfill Styles
+   */
+
+  .grid-postfill-3-4-media-2 {padding-right:75%; float:left;}
+  .grid-postfill-2-3-media-2 {padding-right:66.65%; float:left;}
+  .grid-postfill-1-2-media-2 {padding-right:50%; float:left;}
+  .grid-postfill-1-3-media-2 {padding-right:33.32%; float:left;}
+  .grid-postfill-1-4-media-2 {padding-right:25%; float:left;}
+  .grid-postfill-1-5-media-2 {padding-right:20%; float:left;}
+  .grid-postfill-1-6-media-2 {padding-right:16.65%; float:left;}
+  .grid-postfill-1-8-media-2 {padding-right:12.5%; float:left;}
+  .grid-postfill-phi-media-2 {padding-right:61.8%; float:left;}
+  .grid-postfill-phi2-media-2 {padding-right:38.2%; float:left;}
+  .grid-postfill-phi3-media-2 {padding-right:23.6%; float:left;}
+}
+@media screen and (max-width:768px) {
+  .mast { width: 100%; }
+  .mast { max-width: none; }
+  *[class|=grid], .block { padding: 10px 10px; }
+  .boxed, .arctica-rounded { margin: 0 10px 20px 10px; }
+  .arctica-icon-block  .block-icon { left: 10px; top: 10px; }
+  .two-sidebars .main {width:60%; margin-left:20%; margin-right:20%; } 
+  .sidebar-first .main {width:80%; margin-left:20%; margin-right:0; } 
+  .sidebar-second .main {width:80%; margin-right:20%; margin-left:0; } 
+  .region-sidebar-first {width: 20%; margin-left: -100%; margin-right:0; } 
+  .region-sidebar-second {width: 20%; margin-left: -20%; } 
+
+  /**
+   * Grid Widths
+   */
+
+  .grid-100-media-3 {width:100%; float:left;}
+  .grid-3-4-media-3 {width:75%; float:left;}
+  .grid-2-3-media-3 {width:66.65%; float:left;}
+  .grid-1-2-media-3 {width:50%; float:left;}
+  .grid-1-3-media-3 {width:33.32%; float:left;}
+  .grid-1-4-media-3 {width:25%; float:left;}
+  .grid-1-5-media-3 {width:20%; float:left;}
+  .grid-1-6-media-3 {width:16.65%; float:left;}
+  .grid-1-8-media-3 {width:12.5%; float:left;}
+  .grid-phi-media-3 {width:61.8%; float:left;}
+  .grid-phi2-media-3 {width:38.2%; float:left;}
+  .grid-phi3-media-3 {width:23.6%; float:left;}
+
+  /**
+   * Clear Styles
+   */
+
+  .media-3-clear-both {clear:both;}
+  .media-3-clear-left {clear:left;}
+  .media-3-clear-right {clear:right;}
+  .media-3-clear-none {clear:none;}
+
+  /**
+   * Prefill Styles
+   */
+
+  .grid-prefill-3-4-media-3 {padding-left:75%; float:left;}
+  .grid-prefill-2-3-media-3 {padding-left:66.65%; float:left;}
+  .grid-prefill-1-2-media-3 {padding-left:50%; float:left;}
+  .grid-prefill-1-3-media-3 {padding-left:33.32%; float:left;}
+  .grid-prefill-1-4-media-3 {padding-left:25%; float:left;}
+  .grid-prefill-1-5-media-3 {padding-left:20%; float:left;}
+  .grid-prefill-1-6-media-3 {padding-left:16.65%; float:left;}
+  .grid-prefill-1-8-media-3 {padding-left:12.5%; float:left;}
+  .grid-prefill-phi-media-3 {padding-left:61.8%; float:left;}
+  .grid-prefill-phi2-media-3 {padding-left:38.2%; float:left;}
+  .grid-prefill-phi3-media-3 {padding-left:23.6%; float:left;}
+
+  /**
+   * Postfill Styles
+   */
+
+  .grid-postfill-3-4-media-3 {padding-right:75%; float:left;}
+  .grid-postfill-2-3-media-3 {padding-right:66.65%; float:left;}
+  .grid-postfill-1-2-media-3 {padding-right:50%; float:left;}
+  .grid-postfill-1-3-media-3 {padding-right:33.32%; float:left;}
+  .grid-postfill-1-4-media-3 {padding-right:25%; float:left;}
+  .grid-postfill-1-5-media-3 {padding-right:20%; float:left;}
+  .grid-postfill-1-6-media-3 {padding-right:16.65%; float:left;}
+  .grid-postfill-1-8-media-3 {padding-right:12.5%; float:left;}
+  .grid-postfill-phi-media-3 {padding-right:61.8%; float:left;}
+  .grid-postfill-phi2-media-3 {padding-right:38.2%; float:left;}
+  .grid-postfill-phi3-media-3 {padding-right:23.6%; float:left;}
+}
+@media screen and (max-width:480px) {
+  .mast { width: 100%; }
+  .mast { max-width: none; }
+  *[class|=grid], .block { padding: 10px 10px; }
+  .boxed, .arctica-rounded { margin: 0 10px 20px 10px; }
+  .arctica-icon-block  .block-icon { left: 10px; top: 10px; }
+  .mast .main, .mast .region-sidebar-first, .mast .region-sidebar-second {width: 100%; float:none; margin-left: 0; margin-right: 0; left:0; right:0; clear:both; } 
+
+  /**
+   * Grid Widths
+   */
+
+  .grid-100-media-4 {width:100%; float:left;}
+  .grid-3-4-media-4 {width:75%; float:left;}
+  .grid-2-3-media-4 {width:66.65%; float:left;}
+  .grid-1-2-media-4 {width:50%; float:left;}
+  .grid-1-3-media-4 {width:33.32%; float:left;}
+  .grid-1-4-media-4 {width:25%; float:left;}
+  .grid-1-5-media-4 {width:20%; float:left;}
+  .grid-1-6-media-4 {width:16.65%; float:left;}
+  .grid-1-8-media-4 {width:12.5%; float:left;}
+  .grid-phi-media-4 {width:61.8%; float:left;}
+  .grid-phi2-media-4 {width:38.2%; float:left;}
+  .grid-phi3-media-4 {width:23.6%; float:left;}
+
+  /**
+   * Clear Styles
+   */
+
+  .media-4-clear-both {clear:both;}
+  .media-4-clear-left {clear:left;}
+  .media-4-clear-right {clear:right;}
+  .media-4-clear-none {clear:none;}
+
+  /**
+   * Prefill Styles
+   */
+
+  .grid-prefill-3-4-media-4 {padding-left:75%; float:left;}
+  .grid-prefill-2-3-media-4 {padding-left:66.65%; float:left;}
+  .grid-prefill-1-2-media-4 {padding-left:50%; float:left;}
+  .grid-prefill-1-3-media-4 {padding-left:33.32%; float:left;}
+  .grid-prefill-1-4-media-4 {padding-left:25%; float:left;}
+  .grid-prefill-1-5-media-4 {padding-left:20%; float:left;}
+  .grid-prefill-1-6-media-4 {padding-left:16.65%; float:left;}
+  .grid-prefill-1-8-media-4 {padding-left:12.5%; float:left;}
+  .grid-prefill-phi-media-4 {padding-left:61.8%; float:left;}
+  .grid-prefill-phi2-media-4 {padding-left:38.2%; float:left;}
+  .grid-prefill-phi3-media-4 {padding-left:23.6%; float:left;}
+
+  /**
+   * Postfill Styles
+   */
+
+  .grid-postfill-3-4-media-4 {padding-right:75%; float:left;}
+  .grid-postfill-2-3-media-4 {padding-right:66.65%; float:left;}
+  .grid-postfill-1-2-media-4 {padding-right:50%; float:left;}
+  .grid-postfill-1-3-media-4 {padding-right:33.32%; float:left;}
+  .grid-postfill-1-4-media-4 {padding-right:25%; float:left;}
+  .grid-postfill-1-5-media-4 {padding-right:20%; float:left;}
+  .grid-postfill-1-6-media-4 {padding-right:16.65%; float:left;}
+  .grid-postfill-1-8-media-4 {padding-right:12.5%; float:left;}
+  .grid-postfill-phi-media-4 {padding-right:61.8%; float:left;}
+  .grid-postfill-phi2-media-4 {padding-right:38.2%; float:left;}
+  .grid-postfill-phi3-media-4 {padding-right:23.6%; float:left;}
+}
+@media screen and (max-width:320px) {
+  .mast { width: 100%; }
+  .mast { max-width: none; }
+  *[class|=grid], .block { padding: 10px 10px; }
+  .boxed, .arctica-rounded { margin: 0 10px 20px 10px; }
+  .arctica-icon-block  .block-icon { left: 10px; top: 10px; }
+  .mast .main, .mast .region-sidebar-first, .mast .region-sidebar-second {width: 100%; float:none; margin-left: 0; margin-right: 0; left:0; right:0; clear:both; } 
+
+  /**
+   * Grid Widths
+   */
+
+  .grid-100-media-5 {width:100%; float:left;}
+  .grid-3-4-media-5 {width:75%; float:left;}
+  .grid-2-3-media-5 {width:66.65%; float:left;}
+  .grid-1-2-media-5 {width:50%; float:left;}
+  .grid-1-3-media-5 {width:33.32%; float:left;}
+  .grid-1-4-media-5 {width:25%; float:left;}
+  .grid-1-5-media-5 {width:20%; float:left;}
+  .grid-1-6-media-5 {width:16.65%; float:left;}
+  .grid-1-8-media-5 {width:12.5%; float:left;}
+  .grid-phi-media-5 {width:61.8%; float:left;}
+  .grid-phi2-media-5 {width:38.2%; float:left;}
+  .grid-phi3-media-5 {width:23.6%; float:left;}
+
+  /**
+   * Clear Styles
+   */
+
+  .media-5-clear-both {clear:both;}
+  .media-5-clear-left {clear:left;}
+  .media-5-clear-right {clear:right;}
+  .media-5-clear-none {clear:none;}
+
+  /**
+   * Prefill Styles
+   */
+
+  .grid-prefill-3-4-media-5 {padding-left:75%; float:left;}
+  .grid-prefill-2-3-media-5 {padding-left:66.65%; float:left;}
+  .grid-prefill-1-2-media-5 {padding-left:50%; float:left;}
+  .grid-prefill-1-3-media-5 {padding-left:33.32%; float:left;}
+  .grid-prefill-1-4-media-5 {padding-left:25%; float:left;}
+  .grid-prefill-1-5-media-5 {padding-left:20%; float:left;}
+  .grid-prefill-1-6-media-5 {padding-left:16.65%; float:left;}
+  .grid-prefill-1-8-media-5 {padding-left:12.5%; float:left;}
+  .grid-prefill-phi-media-5 {padding-left:61.8%; float:left;}
+  .grid-prefill-phi2-media-5 {padding-left:38.2%; float:left;}
+  .grid-prefill-phi3-media-5 {padding-left:23.6%; float:left;}
+
+  /**
+   * Postfill Styles
+   */
+
+  .grid-postfill-3-4-media-5 {padding-right:75%; float:left;}
+  .grid-postfill-2-3-media-5 {padding-right:66.65%; float:left;}
+  .grid-postfill-1-2-media-5 {padding-right:50%; float:left;}
+  .grid-postfill-1-3-media-5 {padding-right:33.32%; float:left;}
+  .grid-postfill-1-4-media-5 {padding-right:25%; float:left;}
+  .grid-postfill-1-5-media-5 {padding-right:20%; float:left;}
+  .grid-postfill-1-6-media-5 {padding-right:16.65%; float:left;}
+  .grid-postfill-1-8-media-5 {padding-right:12.5%; float:left;}
+  .grid-postfill-phi-media-5 {padding-right:61.8%; float:left;}
+  .grid-postfill-phi2-media-5 {padding-right:38.2%; float:left;}
+  .grid-postfill-phi3-media-5 {padding-right:23.6%; float:left;}
+}

@@ -1,0 +1,28 @@
+@mixin sprite-smart-thumb-up-en($hide-text: false, $dimensions: true) {
+  @if $dimensions {
+    width:26px;
+    height:27px;
+  }
+  @if $hide-text {
+    @include hide-text;
+  }
+  background:url("/sites/default/files/sasson/plato-sprites/smart-sprite.png?v=104") -0px -0px no-repeat;
+}
+@mixin sprite-smart-thumb-up-dis($hide-text: false, $dimensions: true) {
+  @if $dimensions {
+    width:26px;
+    height:27px;
+  }
+  @if $hide-text {
+    @include hide-text;
+  }
+  background:url("/sites/default/files/sasson/plato-sprites/smart-sprite.png?v=104") -32px -0px no-repeat;
+}
+@mixin hide-text {
+          display: block;
+          border: 0;
+          font: 0/0 a;
+          text-shadow: none;
+          color: transparent;
+          background-color: transparent;
+        }

@@ -1,0 +1,139 @@
+<?php
+
+/**
+ * @file
+ * Install, update and uninstall functions for the modr8 module.
+ * TODO: write upgrade from Drupal 6.
+ *
+ */
+
+/**
+ * Implements hook_schema_alter().
+ */
+function modr8_schema_alter(&$schema) {
+  // Add moderate to existing node schema.
+  $schema['node']['fields']['moderate'] = array(
+    'type' => 'int',
+    'size' => 'tiny',
+    'unsigned' => TRUE,
+    'not null' => TRUE,
+    'default' => 0,
+    'description' => 'A boolean indicating whether the node is "in moderation"',
+  );
+}
+
+/**
+ * Implements hook_schema().
+ */
+function modr8_schema() {
+  $schema = array();
+  $schema['modr8_log'] = array(
+    'fields' => array(
+      'modid' => array(
+        'type' => 'serial',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+      ),
+      'nid' => array(
+        'type' => 'int',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+        'default' => 0,
+      ),
+      'uid' => array(
+        'type' => 'int',
+        'not null' => TRUE,
+        'default' => 0,
+      ),
+      'author_uid' => array(
+        'type' => 'int',
+        'not null' => TRUE,
+        'default' => 0,
+      ),
+      'action' => array(
+        'type' => 'varchar',
+        'length' => 16,
+        'not null' => TRUE,
+        'default' => '',
+      ),
+      'title' => array(
+        'type' => 'varchar',
+        'length' => 128,
+        'not null' => TRUE,
+        'default' => '',
+      ),
+      'message' => array(
+        'type' => 'text',
+        'size' => 'big',
+        'not null' => TRUE,
+      ),
+      'teaser' => array(
+        'type' => 'text',
+        'size' => 'big',
+        'not null' => TRUE,
+      ),
+      'timestamp' => array(
+        'type' => 'int',
+        'not null' => TRUE,
+        'default' => 0,
+      ),
+    ),
+    'indexes' => array(
+      'nid_time' => array('nid', 'modid'),
+      'time_action' => array('timestamp', 'action'),
+    ),
+    'primary key' => array('modid'),
+  );
+
+  return $schema;
+}
+
+/**
+ * Implements hook_install().
+ */
+function modr8_install() {
+  db_add_field('node', 'moderate', array(
+    'type' => 'int',
+    'size' => 'tiny',
+    'unsigned' => TRUE,
+    'not null' => TRUE,
+    'default' => 0,
+    'description' => 'A boolean indicating whether the node is "in moderation"',
+  ));
+  db_add_index('node', 'node_moderate', array('moderate'));
+}
+
+/**
+ * Changeed the table name from modr8_moderate to modr8
+ */
+function modr8_update_7001() {
+  //This will provide us flexibility when integrating with other modules
+  db_rename_table('modr8_moderate', 'modr8');
+}
+
+/**
+ * Dropping separate table implementation
+ */
+function modr8_update_7002() {
+  // Add the moderate field in node table
+  db_add_field('node', 'moderate', array(
+    'type' => 'int',
+    'size' => 'tiny',
+    'unsigned' => TRUE,
+    'not null' => TRUE,
+    'default' => 0,
+    'description' => 'A boolean indicating whether the node is "in moderation"',
+  ));
+  // Add the index
+  db_add_index('node', 'node_moderate', array('moderate'));
+  // Update the existing nodes in the moderate queue
+  $existing_nodes = db_select('modr8', 'm')
+    ->fields('m', array('nid'))
+    ->condition('m.moderate', 1);
+  db_update('node')
+    ->fields(array('moderate' => 1))
+    ->condition('nid', $existing_nodes, 'IN')
+    ->execute();
+  // Drop the modr8 table
+  db_drop_table('modr8');
+}

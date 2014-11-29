@@ -1,0 +1,48 @@
+Index: sites/all/modules/sharethis/sharethis.module
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- sites/all/modules/sharethis/sharethis.module	(revision )
++++ sites/all/modules/sharethis/sharethis.module	(revision )
+@@ -203,6 +203,12 @@
+     '#type' => 'textfield',
+     '#default_value' => variable_get('sharethis_twitter_suffix', ''),
+   );
++  $form['advanced']['sharethis_twitter_handle'] = array(
++    '#title' => t("Twitter Handle"),
++    '#description' => t("Twitter handle to use when sharing."),
++    '#type' => 'textfield',
++    '#default_value' => variable_get('sharethis_twitter_handle', 'sharethis'),
++  );
+   return system_settings_form($form);
+ }
+ 
+@@ -229,6 +235,9 @@
+ 
+   // Ensure default value for twitter suffix
+   $form_state['values']['sharethis_twitter_suffix'] = (isset($form_state['values']['sharethis_twitter_suffix'])) ? $form_state['values']['sharethis_twitter_suffix'] : '';
++
++  // Ensure default value for twitter handle
++  $form_state['values']['sharethis_twitter_handle'] = (isset($form_state['values']['sharethis_twitter_handle'])) ? $form_state['values']['sharethis_twitter_handle'] : 'sharethis';
+ }
+  
+  /**
+@@ -350,6 +359,7 @@
+     'viewMode' => variable_get('sharethis_teaser_option', 0),
+     'widget' => variable_get('sharethis_widget_option', 'st_multi'),
+     'twitter_suffix' => variable_get('sharethis_twitter_suffix', ''),
++    'twitter_handle' => variable_get('sharethis_twitter_handle', ''),
+   );
+ }
+ 
+@@ -398,6 +408,9 @@
+       'st_title' => $title,
+       'class' => 'st_' . $display . $type,
+     );
++    if ($serviceCodeName == 'twitter') {
++      $attributes['st_via'] = $data_options['twitter_handle'];
++    }
+     // Only show the display text if the type is set.
+     if (!empty($type)) {
+       $attributes['displaytext'] = check_plain($display);

@@ -1,0 +1,4 @@
+name = costomspellcheck
+description = Enables the gecko_spellcheck option for TinyMCE via Wysiwyg module.
+core = 7.x
+dependencies[] = wysiwyg

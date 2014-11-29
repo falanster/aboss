@@ -1,0 +1,11 @@
+<?php
+/**
+ * Implements hook_wysiwyg_editor_settings_alter().
+ */
+function MYMODULE_wysiwyg_editor_settings_alter(&$settings, $context) {
+  if ($context['profile']->editor == 'tinymce') {
+    $settings['gecko_spellcheck'] = TRUE;
+    // Any init setting taking a string, boolean, number or array/object holding those types can be overridden/forced here.
+  }
+}
+?>

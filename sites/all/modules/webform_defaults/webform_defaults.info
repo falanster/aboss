@@ -1,0 +1,14 @@
+name = Webform defaults
+description = Attach existing webform fields to a new webform
+core = 7.x
+version = 7.x-1.0-dev
+package = Webform
+dependencies[] = webform
+php = 5.1
+
+; Information added by drupal.org packaging script on 2013-10-26
+version = "7.x-1.x-dev"
+core = "7.x"
+project = "webform_defaults"
+datestamp = "1382755688"
+

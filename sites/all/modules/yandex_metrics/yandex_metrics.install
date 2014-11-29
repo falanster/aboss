@@ -1,0 +1,78 @@
+<?php
+/**
+ * @file
+ *   Install, uninstall and update the module.
+ */
+
+/**
+ * Implementation of hook_uninstall().
+ */
+function yandex_metrics_uninstall() {
+  // Delete module variables and clear variables cache.
+  db_delete('variable')
+    ->condition('name', 'yandex_metrics_%', 'LIKE')
+    ->execute();
+  cache_clear_all('variables', 'cache_bootstrap');
+
+  // Remove block.
+  db_delete('block')
+    ->condition('module', 'yandex_metrics')
+    ->execute();
+}
+
+/**
+ * Implementation of hook_update_N().
+ */
+function yandex_metrics_update_7100() {
+  $schema = yandex_metrics_schema();
+  if (!db_table_exists('yandex_metrics_popular_content')) {
+    db_create_table('yandex_metrics_popular_content', $schema['yandex_metrics_popular_content']);
+  }
+
+  // Clear CSS and JS caches.
+  drupal_clear_css_cache();
+  drupal_clear_js_cache();
+
+  // Rebuild the menu to add new item admin/yandex_metrics_ajax/%/%/%.
+  menu_rebuild();
+
+  // Flush content caches.
+  cache_clear_all();
+
+  return 'Caches have been flushed';
+}
+
+/**
+ * Implementation of hook_schema().
+ */
+function yandex_metrics_schema() {
+  $schema['yandex_metrics_popular_content'] = array(
+    'description' => 'Stores the popular content.',
+    'fields' => array(
+      'url' => array(
+        'description' => 'The url obtained from Yandex.metrika.',
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => TRUE,
+        'default' => ''
+      ),
+      'page_title' => array(
+        'description' => 'The page title of the url.',
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => TRUE,
+        'default' => ''
+      ),
+      'page_views' => array(
+        'type' => 'int',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+        'default' => 0,
+        'description' => 'Page views of this url.',
+      )
+    ),
+    'unique keys' => array('url' => array('url')),
+  );
+
+  return $schema;
+}

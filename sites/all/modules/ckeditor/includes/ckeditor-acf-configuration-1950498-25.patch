@@ -1,0 +1,21 @@
+From 61805323289ef550d2dd92af1cb80351a4636ac3 Mon Sep 17 00:00:00 2001
+From: Taran2L <Taran2L@473438.no-reply.drupal.org>
+Date: Mon, 2 Sep 2013 16:29:37 +0300
+Subject: [PATCH] Issue #1950498 by sashkernel: Added extraAllowedConfig to the
+ CKEditor config.
+
+diff --git a/includes/ckeditor.lib.inc b/includes/ckeditor.lib.inc
+index a28c439..a6f3ad5 100644
+--- a/includes/ckeditor.lib.inc
++++ b/includes/ckeditor.lib.inc
+@@ -795,6 +795,9 @@ function ckeditor_profile_settings_compile($global_profile, $profile) {
+   if (!empty($conf['allowed_content']) && $conf['allowed_content'] === 'f') {
+     $settings['allowedContent'] = true;
+   }
++  elseif (!empty($conf['extraAllowedContent'])) {
++    $settings['extraAllowedContent'] = $conf['extraAllowedContent'];
++  }
+   $settings['ss'] = $conf['ss'];
+ 
+   if (isset($conf['language_direction'])) {
+

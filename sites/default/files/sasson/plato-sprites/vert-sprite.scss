@@ -1,0 +1,78 @@
+@mixin sprite-vert-comment-edit($hide-text: false, $dimensions: true) {
+  @if $dimensions {
+    width:16px;
+    height:16px;
+  }
+  @if $hide-text {
+    @include hide-text;
+  }
+  background:url("/sites/default/files/sasson/plato-sprites/vert-sprite.png?v=889") 0px -0px no-repeat;
+}
+@mixin sprite-vert-next($hide-text: false, $dimensions: true) {
+  @if $dimensions {
+    width:16px;
+    height:16px;
+  }
+  @if $hide-text {
+    @include hide-text;
+  }
+  background:url("/sites/default/files/sasson/plato-sprites/vert-sprite.png?v=889") 0px -18px no-repeat;
+}
+@mixin sprite-vert-comment($hide-text: false, $dimensions: true) {
+  @if $dimensions {
+    width:16px;
+    height:16px;
+  }
+  @if $hide-text {
+    @include hide-text;
+  }
+  background:url("/sites/default/files/sasson/plato-sprites/vert-sprite.png?v=889") 0px -36px no-repeat;
+}
+@mixin sprite-vert-tag($hide-text: false, $dimensions: true) {
+  @if $dimensions {
+    width:16px;
+    height:20px;
+  }
+  @if $hide-text {
+    @include hide-text;
+  }
+  background:url("/sites/default/files/sasson/plato-sprites/vert-sprite.png?v=889") 0px -54px no-repeat;
+}
+@mixin sprite-vert-flag($hide-text: false, $dimensions: true) {
+  @if $dimensions {
+    width:16px;
+    height:16px;
+  }
+  @if $hide-text {
+    @include hide-text;
+  }
+  background:url("/sites/default/files/sasson/plato-sprites/vert-sprite.png?v=889") 0px -76px no-repeat;
+}
+@mixin sprite-vert-comment-del($hide-text: false, $dimensions: true) {
+  @if $dimensions {
+    width:16px;
+    height:16px;
+  }
+  @if $hide-text {
+    @include hide-text;
+  }
+  background:url("/sites/default/files/sasson/plato-sprites/vert-sprite.png?v=889") 0px -94px no-repeat;
+}
+@mixin sprite-vert-email($hide-text: false, $dimensions: true) {
+  @if $dimensions {
+    width:17px;
+    height:17px;
+  }
+  @if $hide-text {
+    @include hide-text;
+  }
+  background:url("/sites/default/files/sasson/plato-sprites/vert-sprite.png?v=889") 0px -112px no-repeat;
+}
+@mixin hide-text {
+          display: block;
+          border: 0;
+          font: 0/0 a;
+          text-shadow: none;
+          color: transparent;
+          background-color: transparent;
+        }

@@ -1,0 +1,52 @@
+***************
+*** 249,254 ****
+  
+    // Ensure default value for twitter suffix
+    $form_state['values']['sharethis_twitter_suffix'] = (isset($form_state['values']['sharethis_twitter_suffix'])) ? $form_state['values']['sharethis_twitter_suffix'] : '';
+  }
+   
+   /**
+--- 255,263 ----
+  
+    // Ensure default value for twitter suffix
+    $form_state['values']['sharethis_twitter_suffix'] = (isset($form_state['values']['sharethis_twitter_suffix'])) ? $form_state['values']['sharethis_twitter_suffix'] : '';
++ 
++   // Ensure default value for twitter handle
++   $form_state['values']['sharethis_twitter_handle'] = (isset($form_state['values']['sharethis_twitter_handle'])) ? $form_state['values']['sharethis_twitter_handle'] : 'sharethis';
+  }
+   
+   /**
+***************
+*** 370,375 ****
+      'viewMode' => variable_get('sharethis_teaser_option', 0),
+      'widget' => variable_get('sharethis_widget_option', 'st_multi'),
+      'twitter_suffix' => variable_get('sharethis_twitter_suffix', ''),
+    );
+  }
+  
+--- 379,385 ----
+      'viewMode' => variable_get('sharethis_teaser_option', 0),
+      'widget' => variable_get('sharethis_widget_option', 'st_multi'),
+      'twitter_suffix' => variable_get('sharethis_twitter_suffix', ''),
++     'twitter_handle' => variable_get('sharethis_twitter_handle', ''),
+    );
+  }
+  
+***************
+*** 418,423 ****
+        'st_title' => $title,
+        'class' => 'st_' . $display . $type,
+      );
+      // Only show the display text if the type is set.
+      if (!empty($type)) {
+        $attributes['displaytext'] = check_plain($display);
+--- 428,436 ----
+        'st_title' => $title,
+        'class' => 'st_' . $display . $type,
+      );
++     if ($serviceCodeName == 'twitter') {
++       $attributes['st_via'] = $data_options['twitter_handle'];
++     }
+      // Only show the display text if the type is set.
+      if (!empty($type)) {
+        $attributes['displaytext'] = check_plain($display);
