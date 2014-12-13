@@ -120,7 +120,7 @@
  *   'password' => 'password',
  *   'host' => 'localhost',
  *   'prefix' => 'main_',
- *   'collation' => 'utf8_general_ci',
+ *   'collation' => 'utf8_unicode_ci',
  * );
  * @endcode
  *

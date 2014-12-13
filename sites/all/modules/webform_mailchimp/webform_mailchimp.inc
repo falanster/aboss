@@ -1,12 +1,11 @@
 <?php
-
 /**
  * @file
  * Webform module Mailchimp component.
  */
 
 /**
- * Implementation of _webform_defaults_component().
+ * Implements _webform_defaults_component().
  */
 function _webform_defaults_mailchimp() {
   return array(
@@ -30,7 +29,7 @@ function _webform_defaults_mailchimp() {
 }
 
 /**
- * Implementation of _webform_theme_component().
+ * Implements _webform_theme_component().
  */
 function _webform_theme_mailchimp() {
   return array(
@@ -41,7 +40,7 @@ function _webform_theme_mailchimp() {
 }
 
 /**
- * Implementation of _webform_edit_component().
+ * Implements _webform_edit_component().
  */
 function _webform_edit_mailchimp($component) {
   drupal_add_js(drupal_get_path('module', 'webform_mailchimp') . '/webform_mailchimp.js');
@@ -78,7 +77,8 @@ function _webform_edit_mailchimp($component) {
   $form['user_email'] = array(
     '#type' => 'checkbox',
     '#title' => t('User email as default'),
-    '#default_value' => $component['value'] == '%useremail' ? 1 : 0,
+    '#default_value' => $component['value'] == '[current-user:mail]' ? 1 : 0,
+    '#attributes' => array('onclick' => 'getElementById("email-value").value = (this.checked ? "[current-user:mail]" : ""); getElementById("email-value").disabled = this.checked;'),
     '#description' => t('Set the default value of this field to the user email, if he/she is logged in.'),
     '#weight' => 0,
     '#element_validate' => array('_webform_mailchimp_user_email_validate'),
@@ -89,7 +89,7 @@ function _webform_edit_mailchimp($component) {
   // Fetches existing components, checks if any of them are e-mail fields.
   // Let's the user choose which field to use for the newsletter e-mail address.
   if (!empty($node->webform['components'])) {
-    foreach ($node->webform['components'] AS $field) {
+    foreach ($node->webform['components'] as $field) {
       if ($field['type'] == 'email') {
         $options[$field['form_key']] = $field['name'];
       }
@@ -109,7 +109,7 @@ function _webform_edit_mailchimp($component) {
     '#type' => 'textfield',
     '#title' => t('Checkbox label'),
     '#default_value' => !empty($component['extra']['checkbox_label']) ? $component['extra']['checkbox_label'] : t('Subscribe to newsletter'),
-    '#description' => t('If using an existing field you can edit the default label that\'s printed here.'),
+    '#description' => t("If using an existing field you can edit the default label that's printed here."),
     '#weight' => 2,
     '#prefix' => '<div id="field_settings" style="display:none;">',
   );
@@ -155,10 +155,13 @@ function _webform_edit_mailchimp($component) {
  */
 function _webform_mailchimp_user_email_validate($element, &$form_state) {
   if ($form_state['values']['user_email']) {
-    $form_state['values']['value'] = '%useremail';
+    $form_state['values']['value'] = '[current-user:mail]';
   }
 }
 
+/**
+ * Form element validator for mailchimp_list element.
+ */
 function _webform_mailchimp_list_validate($element, &$form_state) {
   if ($form_state['values']['extra']['mailchimp_list'] == 'none') {
     form_error($element, t('You need to select a Mailchimp list.'));
@@ -166,7 +169,7 @@ function _webform_mailchimp_list_validate($element, &$form_state) {
 }
 
 /**
- * Implementation of _webform_render_component().
+ * Implements _webform_render_component().
  */
 function _webform_render_mailchimp($component, $value = NULL, $filter = TRUE) {
   if ($value[0]) {
@@ -193,7 +196,7 @@ function _webform_render_mailchimp($component, $value = NULL, $filter = TRUE) {
     );
   }
   else {
-    // Creates a checkbox to subscribe, or a hidden form element if configured
+    // Creates a checkbox to subscribe, or a hidden form element if configured.
     if ($component['extra']['checkbox_hidden'] == 1) {
       $element['mailchimp_signup'] = array(
         '#type'              => 'hidden',
@@ -225,13 +228,16 @@ function _webform_render_mailchimp($component, $value = NULL, $filter = TRUE) {
 }
 
 /**
- * A Drupal Forms API Validation function. Validates the entered values from
- * email components on the client-side form.
- * @param $form_element
+ * A Drupal Forms API Validation function.
+ *
+ * Validates the entered values from email components on the client-side form.
+ *
+ * @param array $form_element
  *   The e-mail form element.
- * @param $form_state
+ * @param array $form_state
  *   The full form state for the webform.
- * @return
+ *
+ * @return void
  *   None. Calls a form_set_error if the e-mail is not valid.
  */
 function _webform_validate_mailchimp_email($form_element, $form_state) {
@@ -245,7 +251,7 @@ function _webform_validate_mailchimp_email($form_element, $form_state) {
 }
 
 /**
- * Implementation of _webform_display_component().
+ * Implements _webform_display_component().
  */
 function _webform_display_mailchimp($component, $value, $format = 'html') {
   return array(
@@ -269,16 +275,16 @@ function theme_webform_display_mailchimp($variables) {
 }
 
 /**
- * Implementation of _webform_submit_component().
+ * Implements _webform_submit_component().
  */
 function _webform_submit_mailchimp($component, $value) {
   $return_val = NULL;
 
-  if (!empty($value['mailchimp_signup'])){
+  if (!empty($value['mailchimp_signup'])) {
     $return_val = array(0 => $value['mailchimp_signup']);
   }
 
-  if (!empty($value['mailchimp_signup'])){
+  if (!empty($value['mailchimp_signup'])) {
     $return_val = array(0 => $value['mailchimp_signup']);
   }
   if (!empty($value['mailchimp_email_address'])) {
@@ -289,7 +295,7 @@ function _webform_submit_mailchimp($component, $value) {
 }
 
 /**
- * Implementation of _webform_analysis_component().
+ * Implements _webform_analysis_component().
  */
 function _webform_analysis_mailchimp($component, $sids = array()) {
   $query = db_select('webform_submitted_data', 'wsd', array('fetch' => PDO::FETCH_ASSOC))
@@ -316,19 +322,22 @@ function _webform_analysis_mailchimp($component, $sids = array()) {
 
   $rows[0] = array(t('Left Blank'), ($submissions - $nonblanks));
   $rows[1] = array(t('User entered value'), $nonblanks);
-  $rows[2] = array(t('Average submission length in words (ex blanks)'), ($nonblanks != 0 ? number_format($wordcount/$nonblanks, 2) : '0'));
+  $rows[2] = array(
+    t('Average submission length in words (ex blanks)'),
+    ($nonblanks != 0 ? number_format($wordcount / $nonblanks, 2) : '0'),
+  );
   return $rows;
 }
 
 /**
- * Implementation of _webform_table_component().
+ * Implements _webform_table_component().
  */
 function _webform_table_mailchimp($component, $value) {
   return check_plain(empty($value[0]) ? '' : $value[0]);
 }
 
 /**
- * Implementation of _webform_csv_headers_component().
+ * Implements _webform_csv_headers_component().
  */
 function _webform_csv_headers_mailchimp($component, $export_options) {
   $header = array();
@@ -339,7 +348,7 @@ function _webform_csv_headers_mailchimp($component, $export_options) {
 }
 
 /**
- * Implementation of _webform_csv_data_component().
+ * Implements _webform_csv_data_component().
  */
 function _webform_csv_data_mailchimp($component, $export_options, $value) {
   return !isset($value[0]) ? '' : $value[0];

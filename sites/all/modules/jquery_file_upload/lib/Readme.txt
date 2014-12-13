@@ -1,1 +1,0 @@
-Copy the js, css and img folders in the jQuery file Upload plugin to this directory
