@@ -2,7 +2,7 @@
 
 /**
  * @file
- * Information management
+ * Information management 
  */
 
 /**
@@ -39,28 +39,22 @@ function _webform_default_fields_webform_node_types() {
  */
 function _webform_default_fields_create_container_node($content_type) {
   $node = new stdClass();
-  $node->title = t('!type Default Fields Master Node', array('!type' => ucfirst($content_type)));
+  $node->title = 'Webform Default Fields Master Node';
   $node->type = $content_type;
-  $node->language = LANGUAGE_NONE;
   $node->status = 0;
   $node->webform = array(
     'confirmation' => '',
     'roles' => array_keys(user_roles())
   );
   node_save($node);
-
-  // Because this function is called during install and
-  // the webform.module file may be not loaded yet
-  if (function_exists('webform_ensure_record')) {
-    webform_ensure_record($node);
-  }
+  webform_ensure_record($node);
   return $node->nid;
 }
 
 /**
  * Update "master-node" for content type
- *
- * @param string $content_type
+ * 
+ * @param string $content_type 
  */
 function _webform_default_fields_update_container_node($content_type, $old_content_type) {
   if (variable_get('webform_default_fields_nid_' . $old_content_type, 0)) {
@@ -71,15 +65,15 @@ function _webform_default_fields_update_container_node($content_type, $old_conte
 
 /**
  * Delete "master-node" for content type
- *
- * @param string $content_type
+ * 
+ * @param string $content_type 
  */
 function _webform_default_fields_delete_container_node($content_type, $rebuild = TRUE) {
   if (($nid = variable_get('webform_default_fields_nid_' . $content_type, 0))) {
-    node_delete($nid);
+    node_delete($nid);      
     if ($rebuild) {
       menu_rebuild();
-    }
+    }  
   }
 }
 
@@ -91,6 +85,9 @@ function _webform_default_fields_delete_container_node($content_type, $rebuild =
  */
 function _webform_default_fields_container_node($content_type, $rebuild = TRUE) {
   if (!($nid = variable_get('webform_default_fields_nid_' . $content_type, 0))) {
+    // Cancel menu_rebuild() during node_save()
+    // Please @see https://www.drupal.org/node/2088485
+    variable_set('menu_rebuild_needed', FALSE);
     $nid = _webform_default_fields_create_container_node($content_type);
     variable_set('webform_default_fields_nid_' . $content_type, $nid);
     if ($rebuild) {

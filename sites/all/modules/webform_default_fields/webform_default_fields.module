@@ -15,6 +15,10 @@ define('WEBFORM_DEFAULT_FIELDS_DEFAUT_TYPE', 'webform');
  */
 function webform_default_fields_permission() {
   return array(
+    'webform default fields reset' => array(
+      'title' => t('Reset Webform components to Default'),
+      'description' => t('Grants access to the "Reset" page on all webform content.'),
+    ),
     'administer webform default fields' => array(
       'title' => t('Administer Webform Default Fields'),
       'description' => t('Grants access to the "Webform Default Fields" tab on content types management page. Generally an administrative permission.'),
@@ -28,7 +32,6 @@ function webform_default_fields_permission() {
 function webform_default_fields_menu() {
   $items = array();
   $path = drupal_get_path('module', 'webform_default_fields');
-
   foreach (_webform_default_fields_webform_node_types() as $type) {
     $type_url_str = $type['url'];
     $type_name = $type['name'];
@@ -45,7 +48,6 @@ function webform_default_fields_menu() {
     );
 
     $nid = _webform_default_fields_container_node($type_name);
-
     // Redirect master node webforms to content type fields page
     $items['node/' . $nid . '/webform/components'] = array(
       'page callback' => 'webform_default_fields_redirect_master',
@@ -58,6 +60,17 @@ function webform_default_fields_menu() {
     $items['node/' . $nid] = $items['node/' . $nid . '/webform/components'];
   }
 
+  $items['node/%webform_menu/webform/webform-reset'] = array(
+    'title' => 'Reset',
+    'page callback' => 'webform_default_fields_reset',
+    'page arguments' => array(1),
+    'access arguments' => array('webform default fields reset'),
+    'file' => 'webform_default_fields.reset.inc',
+    'file path' => $path . '/includes',
+    'weight' => 8,
+    'type' => MENU_LOCAL_TASK,
+    'context' => MENU_CONTEXT_PAGE | MENU_CONTEXT_INLINE,
+  );
   return $items;
 }
 
@@ -73,9 +86,11 @@ function webform_default_fields_node_type_update($info) {
 /**
  * Implements hook_form_FORM_ID_alter().
  */
-function webform_default_fields_form_webform_admin_settings_alter(&$form, &$form_state) {
+function webform_default_fields_form_node_type_form_alter(&$form, &$form_state) {
+  if (isset($form['type'])) {
   form_load_include($form_state, 'inc', 'webform_default_fields', 'includes/webform_default_fields.form');
   $form['#submit'][] = 'webform_default_fields_form_webform_admin_settings_submit';
+  }
 }
 
 /**
@@ -85,29 +100,23 @@ function webform_default_fields_node_insert($node) {
   if (($nid = variable_get('webform_default_fields_nid_' . $node->type, 0))) {
     if (empty($node->webform['components'])) {
       module_load_include('inc', 'webform', 'includes/webform.components');
-
       webform_ensure_record($node);
       $master_node = node_load($nid, NULL, TRUE);
-
       if (isset($master_node->webform)) {
-	$node->original = clone $node;
+        $node->original = clone $node;
         $node->webform = $master_node->webform;
         $node->webform['nid'] = $node->nid;
-
         foreach ($node->webform['emails'] as &$component) {
           $component['nid'] = $node->nid;
         }
-
         foreach ($node->webform['components'] as &$component) {
           $component['nid'] = $node->nid;
         }
-	
-	if (isset($node->webform['conditionals']) && !empty($node->webform['conditionals'])) {
-	  foreach ($node->webform['conditionals'] as &$component) {
+        if (isset($node->webform['conditionals']) && !empty($node->webform['conditionals'])) {
+          foreach ($node->webform['conditionals'] as &$component) {
             $component['nid'] = $node->nid;
           }
-	}
-
+        }
         webform_node_update($node);
       }
     }
