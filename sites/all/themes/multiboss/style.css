@@ -139,7 +139,14 @@ a { outline: 0 }
 /*header*/
 #header { text-align: left; padding: 5px 0; position: relative; }
 /*logo*/
-#logo img { display: block; /*max-width: 100%;*/ width: 23%; margin: 5px 0;}
+#logo img {
+ display: block; 
+ /*max-width: 100%;*/ 
+ width: 23%; 
+ margin: 5px 0;
+ position: relative;
+ z-index: 5;
+ }
 #logo a { color: #000; font-size: 32px; text-decoration: none; }
 /*search*/
 #header-social { position: absolute; top: 50%; margin-top: -20px; right: 0; height: 40px; width: 210px; }
@@ -166,6 +173,7 @@ a { outline: 0 }
 #block-block-31 img {
 /*  position: absolute;*/
   margin-top: -341px;
+  position: relative;
 }
 
 #block-locale-language {
@@ -560,7 +568,13 @@ input[type="button"].full-width {
 width: 100%; padding-left: 0 !important; padding-right: 0 !important; text-align: center; }
 
 
-#block-search-form { padding-bottom: 7px; }
+#block-search-form { 
+  padding-bottom: 7px;
+  float: right;
+  margin-top: -7%;
+  margin-right: 15px; 
+  position: relative;
+}
 
 #block-search-form .content { margin-top: 0; }
 
