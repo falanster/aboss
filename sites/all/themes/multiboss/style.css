@@ -168,6 +168,13 @@ a { outline: 0 }
   margin-top: -341px;
 }
 
+#block-locale-language {
+  position: relative;
+  margin-top: -25%;
+  margin-right: 15px;
+  float: right;
+}
+
 /* Main Navigation
 ================================================== */
 #main-menu > ul,
