@@ -121,7 +121,7 @@
  *   'password' => 'password',
  *   'host' => 'localhost',
  *   'prefix' => 'main_',
- *   'collation' => 'utf8_unicode_ci',
+ *   'collation' => 'utf8_general_ci',
  * );
  * @endcode
  *
@@ -216,9 +216,9 @@ $databases = array (
   array (
     'default' => 
     array (
-      'database' => 'abossdb',
-      'username' => 'bossuser',
-      'password' => 'Gc3o5Yi3',
+      'database' => 'aboss',
+      'username' => 'root',
+      'password' => '1234',
       'host' => 'localhost',
       'port' => '',
       'driver' => 'mysql',
@@ -594,11 +594,11 @@ $databases = array (
     'default' => 
     array (
       'driver' => 'mysql',
-      'username' => 'devaboss',
-      'password' => 'I8z9E3i6',
+      'username' => 'root',
+      'password' => '1234',
       'port' => '',
       'host' => 'localhost',
-      'database' => 'devabossdb',
+      'database' => 'aboss',
     ),
   ),
 );
