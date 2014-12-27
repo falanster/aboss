@@ -4,7 +4,6 @@
  * @file
  * Drupal site-specific configuration file.
  *
- *
  * IMPORTANT NOTE:
  * This file may have been set to read-only by the Drupal installation program.
  * If you make changes to this file, be sure to protect it again after making
@@ -121,7 +120,7 @@
  *   'password' => 'password',
  *   'host' => 'localhost',
  *   'prefix' => 'main_',
- *   'collation' => 'utf8_general_ci',
+ *   'collation' => 'utf8_unicode_ci',
  * );
  * @endcode
  *
@@ -216,9 +215,9 @@ $databases = array (
   array (
     'default' => 
     array (
-      'database' => 'aboss',
-      'username' => 'root',
-      'password' => '1234',
+      'database' => 'abossdb',
+      'username' => 'bossuser',
+      'password' => 'Gc3o5Yi3',
       'host' => 'localhost',
       'port' => '',
       'driver' => 'mysql',
@@ -594,11 +593,11 @@ $databases = array (
     'default' => 
     array (
       'driver' => 'mysql',
-      'username' => 'root',
-      'password' => '1234',
+      'username' => 'devaboss',
+      'password' => 'I8z9E3i6',
       'port' => '',
       'host' => 'localhost',
-      'database' => 'aboss',
+      'database' => 'devabossdb',
     ),
   ),
 );
