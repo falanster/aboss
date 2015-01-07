@@ -3,8 +3,8 @@ sites/*/settings*.php
 sites/default/settings.php
 
 # Ignore paths that contain user-generated content.
-sites/*/files
-sites/*/private
+# sites/*/files
+# sites/*/private
 
 private
 private/*
