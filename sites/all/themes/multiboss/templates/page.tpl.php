@@ -212,16 +212,16 @@
         </div>
       <?php endif; ?>
       
-      <?php if ($page['footer']): ?>
-        <div class="span_1_of_1 col col-1">
-          <?php print render($page['footer']); ?>
-        </div>
-      <?php endif; ?>
+
     </div>
   </div>
   <?php endif; ?>
 
   <footer id="copyright-wrap" class="clear">
-=)
+		<?php if ($page['footer']): ?>
+       <div class="span_1_of_1 col col-1">
+         <?php print render($page['footer']); ?>
+       </div>
+     <?php endif; ?>
   </footer>
 </div>

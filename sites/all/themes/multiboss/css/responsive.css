@@ -48,7 +48,7 @@
 	.sidebar-container,
 	.left-content { width: 100%; }
 	.sidebar-container {margin-top: 40px; padding-top: 40px; border-top: 10px solid #eee; }
-	.col{ width: 100%; margin-left: 0; margin-bottom: 25px; }
+	.col{ /*width: 100%;*/ width: auto; margin-left: 0; margin-bottom: 25px; }
 	#wrap { margin-top: 0; margin-bottom: 0; }
 	#header-social { clear: both; position: inherit; top: auto; right: auto; margin-top: 20px; }
 }
