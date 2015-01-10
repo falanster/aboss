@@ -323,7 +323,7 @@ h1.page-title {
   height: auto;
   max-width: 97.4%;
   margin: 0.5em 1em 0.5em 0;
-  float: left;
+
 }
 
 .node-teaser p {
@@ -1015,3 +1015,16 @@ border-left: 1px solid; border-right: 1px solid; height: 40px; margin-left: -36p
 .node-type-studyevent .group-left {
   width: 70%;
 }
+
+.node-type-studyevent #content-wrap img {
+  float: left;  
+}    
+
+.view-trainer img{
+  border-radius: 101px;
+}
+
+.view-event-feedback img {
+  border-radius: 58px;
+}
+
