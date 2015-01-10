@@ -1,0 +1,122 @@
+.quicktabs-style-zen {
+  margin: 15px 0 20px;
+}
+
+/* event  */
+
+.node-type-studyevent h2 {
+  margin: 0 0 10px;
+  font-size: 1.3em;
+}
+
+.node-type-studyevent .page-title {
+  display: none;
+}
+
+.node-type-studyevent .field-name-title {
+  font-size: 2em;
+  margin: 5px 0 10px;
+}
+
+.node-type-studyevent .group-description {
+  width: 52%;
+  float: left;
+}
+
+.node-type-studyevent .field-name-field-date {
+  width: 100%;
+  float: left;
+}
+
+.node-type-studyevent .field-name-field-place {
+  width: 100%;
+  float: left;
+}
+
+.node-type-studyevent .field-name-field-deadline {
+  width: 100%;
+  float: left;
+}
+
+.node-type-studyevent .field-name-field-social {
+  float: left;
+  margin-top: 20px;
+}
+
+.node-type-studyevent .field-group-format-wrapper {
+  float: left;
+  width: 100%;
+}
+
+.node-type-studyevent .field-name-trainers-and-feedbacks {
+  width: auto;
+}
+
+.node-type-studyevent .group-right {
+  width: 25%;
+}
+
+.node-type-studyevent .group-left {
+  width: 70%;
+}
+
+.node-type-studyevent #content-wrap img {
+  float: left;  
+}    
+
+.view-trainer img{
+  border-radius: 101px;
+}
+
+.view-event-feedback img {
+  border-radius: 58px;
+}
+
+.node-type-studyevent .group-left  .field-name-event-feedback {
+  float: left;
+}
+
+.node-type-studyevent .group-left  .field-name-event-feedback .views-row {
+   width: 30%;
+	 float: left;
+	 margin-right: 15px;
+}
+
+.node-type-studyevent .group-left  .field-name-event-feedback .views-row  .views-field {
+  float: left;
+}
+
+.node-type-studyevent .group-left  .field-name-event-feedback .views-row  .views-field-title {
+  font-weight: bold;
+  font-size: 105%;
+  margin-bottom: 10px;
+}
+
+.node-type-studyevent .group-left  .field-name-event-feedback .views-row  .views-field-body {
+  font-size: 90%;
+}
+
+ .node-type-studyevent  #block-views-trainer-block .view-trainer {
+   float: left;
+
+ }
+
+ .node-type-studyevent  #block-views-trainer-block .view-trainer .views-row {
+   float: left;
+	 margin-right: 15px;
+	 width: 30%;
+ }
+ 
+ .node-type-studyevent  #block-views-trainer-block .view-trainer .views-row  img {
+   width: 80%;
+ }
+ 
+ .node-type-studyevent  #block-views-trainer-block .view-trainer .views-row .views-field {
+   float: left;
+ }
+ 
+.node-type-studyevent  .view-trainer .views-row .views-field-title {
+  font-weight: bold;
+  font-size: 120%;
+  margin-bottom: 10px;
+}

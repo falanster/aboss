@@ -2,6 +2,7 @@ name = Multiboss Theme
 description = Multipurpose Theme is a premium Drupal 7 theme. Developed by <a href="http://www.devsaran.com">Devsaran.com</a>.
 core = 7.x
 engine = phptemplate
+stylesheets[all][] = boss.css
 stylesheets[all][] = style.css
 stylesheets[all][] = css/responsive.css
 scripts[] = js/retina.js
