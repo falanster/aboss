@@ -980,7 +980,7 @@ border-left: 1px solid; border-right: 1px solid; height: 40px; margin-left: -36p
 }
 
 .node-type-studyevent .group-description {
-  width: 620px;
+  width: 60%;
   float: left;
 }
 
@@ -1005,5 +1005,13 @@ border-left: 1px solid; border-right: 1px solid; height: 40px; margin-left: -36p
 }
 
 .node-type-studyevent .field-name-trainers-and-feedbacks {
-  width: 550px;
+  width: auto;
+}
+
+.node-type-studyevent .group-right {
+  width: 25%;
+}
+
+.node-type-studyevent .group-left {
+  width: 70%;
 }
