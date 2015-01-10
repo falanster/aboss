@@ -43,6 +43,13 @@
   margin-top: 20px;
 }
 
+.node-type-studyevent .field-name-send-application-button {
+  float: left;
+  margin-top: 20px;
+  width: 100%;
+  font-size: 1.3em;
+}
+
 .node-type-studyevent .field-group-format-wrapper {
   float: left;
   width: 100%;
@@ -120,3 +127,14 @@
   font-size: 120%;
   margin-bottom: 10px;
 }
+
+/* footer 
+#copyright-wrap {
+ margin: 0 -30px 0;
+ padding: 10px 30px 0;
+ width: 100%;
+}
+
+.region-footer {
+ font-size: 0.9em;
+}*/
