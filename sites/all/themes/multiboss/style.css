@@ -970,6 +970,20 @@ border-left: 1px solid; border-right: 1px solid; height: 40px; margin-left: -36p
 
 /* event  */
 
+.node-type-studyevent .page-title {
+  display: none;
+}
+
+.node-type-studyevent .field-name-title {
+  font-size: 2em;
+  margin: 5px 0 10px;
+}
+
+.node-type-studyevent .group-description {
+  width: 620px;
+  float: left;
+}
+
 .node-type-studyevent .field-name-field-date {
   width: 100%;
   float: left;
@@ -987,7 +1001,7 @@ border-left: 1px solid; border-right: 1px solid; height: 40px; margin-left: -36p
 
 .node-type-studyevent .field-group-format-wrapper {
   float: left;
-  width: 400px;
+  width: 100%;
 }
 
 .node-type-studyevent .field-name-trainers-and-feedbacks {
