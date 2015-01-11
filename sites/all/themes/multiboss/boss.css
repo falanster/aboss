@@ -31,6 +31,9 @@
   font-size: 1.5em;
 	max-width: 520px;
 	line-height: 90%;
+	background: rgba(34, 34, 34, .7);
+  width: 460px;
+  padding: 5px;
 }
 
 .views-slideshow-cycle-main-frame-row-item  .views-field-field-image {
