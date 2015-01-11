@@ -12,6 +12,28 @@
   padding: 6px;
 }
 
+.node-type-studyevent h2 ,
+.front h2,
+.not-front h2{
+  margin: 0 0 10px;
+  font-size: 1.3em;
+}
+
+.node-type-studyevent .group-right,
+.node-type-article  .group-right {
+  width: 25%;
+}
+
+.node-type-studyevent .group-left ,
+.node-type-article  .group-left {
+  width: 70%;
+}
+
+.view-trainer img,
+.view-add-author img{
+  border-radius: 101px;
+}
+
 /* slideshow */
 
 #block-views-slider-block {
@@ -110,12 +132,6 @@ margin-right: 23px;
 
 /* event  */
 
-.node-type-studyevent h2 ,
-.front h2{
-  margin: 0 0 10px;
-  font-size: 1.3em;
-}
-
 .node-type-studyevent .page-title {
   display: none;
 }
@@ -166,21 +182,9 @@ margin-right: 23px;
   width: auto;
 }
 
-.node-type-studyevent .group-right {
-  width: 25%;
-}
-
-.node-type-studyevent .group-left {
-  width: 70%;
-}
-
 .node-type-studyevent #content-wrap img {
   float: left;  
 }    
-
-.view-trainer img{
-  border-radius: 101px;
-}
 
 .view-event-feedback img {
   border-radius: 58px;
@@ -229,19 +233,19 @@ margin-right: 23px;
    float: left;
  }
  
-.node-type-studyevent  .view-trainer .views-row .views-field-title {
+.node-type-studyevent  .view-trainer .views-row .views-field-title,
+.node-type-article .view-add-author .username {
   font-weight: bold;
   font-size: 120%;
   margin-bottom: 10px;
 }
 
-/* footer 
-#copyright-wrap {
- margin: 0 -30px 0;
- padding: 10px 30px 0;
- width: 100%;
+/* article*/
+
+.node-type-article .view-add-author .views-field-field-about-author {
+  margin-top: 10px;
 }
 
-.region-footer {
- font-size: 0.9em;
-}*/
+.node-type-article .group-right .field-type-ds {
+  margin-bottom: 20px;
+}
