@@ -1,9 +1,32 @@
-#main {
-  margin-top: -20px;
+.not-front #main {
+  margin-top: -30px;
+}
+
+.front #main {
+  margin-top: -10px;
+}
+
+.front  #main #content-wrap {
+  float: left;
+  margin: 0px -30px 0px;
+  padding: 0px 30px 0;
+  background: #f2f2f2;
+}
+
+ .page-node #main #content-wrap {
+  padding-bottom: 20px;
 }
 
 .quicktabs-style-zen {
   margin: 15px 0 20px;
+}
+
+#content-wrap img {
+  border: 1px solid #CCCCCC;
+  padding: 6px;
+  height: auto;
+  max-width: 97.4%;
+  margin: 0 0.5em 0 0; 
 }
 
 .page-node #block-views-slider-block img,
@@ -16,7 +39,9 @@
 .front h2,
 .not-front h2{
   margin: 0 0 10px;
-  font-size: 1.3em;
+  font-size: 1.6em;
+	font-weight: 570;
+	color: #222222;
 }
 
 .node-type-studyevent .group-right,
@@ -27,6 +52,11 @@
 .node-type-studyevent .group-left ,
 .node-type-article  .group-left {
   width: 70%;
+}
+
+.node-type-studyevent .group-header {
+  float: left;
+  margin-bottom: 10px;
 }
 
 .view-trainer img,
@@ -49,16 +79,18 @@
 
 .views-slideshow-cycle-main-frame-row-item .views-field-title {
   position: absolute;
-  margin: -250px 0 0 50px;
+	float: left;
+  margin: 15px 0 0 50px; 
   font-size: 1.5em;
 	max-width: 520px;
-	line-height: 90%;
-	background: rgba(34, 34, 34, .7);
+	line-height: 100%;
+	background: rgba(255, 255, 255, .75);
   width: 460px;
   padding: 5px;
 }
 
 .views-slideshow-cycle-main-frame-row-item  .views-field-field-image {
+  float: left;
   margin: 0 0 0 30px;
 	position: relative;
   z-index: 0;
@@ -87,6 +119,23 @@
 
 .views-slideshow-pager-field-item .views-content-counter {
   font-size: 0;
+}
+
+.item-list .pager {
+  margin-bottom: 15px;
+}
+
+.page-node .language-icon {
+  display: none;
+}
+
+.page-node .field-name-field-file  .file img {
+  float: left;
+}
+
+.page-node .field-name-field-file  .file  a {
+
+  float: left;
 }
 
 /* view front events*/
@@ -132,6 +181,11 @@ margin-right: 23px;
 
 /* event  */
 
+#quicktabs-container-trainers_and_feedbacks {
+  border-bottom: 1px solid #dddddd;
+	float: left;
+}
+
 .node-type-studyevent .page-title {
   display: none;
 }
@@ -144,6 +198,7 @@ margin-right: 23px;
 .node-type-studyevent .group-description {
   width: 52%;
   float: left;
+	margin-left: 10px;
 }
 
 .node-type-studyevent .field-name-field-date {
@@ -192,6 +247,7 @@ margin-right: 23px;
 
 .node-type-studyevent .group-left  .field-name-event-feedback {
   float: left;
+	margin-top: 15px;
 }
 
 .node-type-studyevent .group-left  .field-name-event-feedback .views-row {
@@ -205,13 +261,19 @@ margin-right: 23px;
 }
 
 .node-type-studyevent .group-left  .field-name-event-feedback .views-row  .views-field-title {
-  font-weight: bold;
+
+	font-weight: bold;
   font-size: 105%;
-  margin-bottom: 10px;
+  margin: 10px 0;
 }
 
 .node-type-studyevent .group-left  .field-name-event-feedback .views-row  .views-field-body {
   font-size: 90%;
+}
+
+.group-left .field-name-field-tags,
+.page-node .field-name-field-tags {
+  margin-top: 10px;
 }
 
  .node-type-studyevent  #block-views-trainer-block .view-trainer {
@@ -235,17 +297,76 @@ margin-right: 23px;
  
 .node-type-studyevent  .view-trainer .views-row .views-field-title,
 .node-type-article .view-add-author .username {
+  float: left;
   font-weight: bold;
   font-size: 120%;
-  margin-bottom: 10px;
+  margin: 10px 0;
+}
+
+.node-type-article .view-add-author .views-field-name {
+  float: left;
+}
+
+.node-type-studyevent  .view-trainer .views-row .views-field-body {
+  float: left;
+}
+
+.group-left .field-name-sent-application  {
+  margin-top: 10px;
+	float: left;
+}
+
+.group-left .webform-client-form {
+  float: left;
 }
 
 /* article*/
 
 .node-type-article .view-add-author .views-field-field-about-author {
   margin-top: 10px;
+	clear: both;
 }
-
+/*
 .node-type-article .group-right .field-type-ds {
   margin-bottom: 20px;
+} */
+
+.page-node .group-right .field-type-ds,
+.node-type-article .group-right .field-type-ds{
+  margin-bottom: 30px;
+}
+
+/* page-taxonomy*/
+
+.page-taxonomy article footer {
+  float: left;
+  margin:  10px 0;
+	/*clear: both; */
+	width: 55%;
+}
+
+.page-taxonomy .field-type-fivestar {
+  float: left;
+  margin-top: 5px;
+	width: 55%;
+}
+
+/* partnery */
+
+.page-taxonomy  #taxonomy-term-146  .taxonomy-term-description img {
+  border: none;
+}
+
+.page-taxonomy  #taxonomy-term-146  .taxonomy-term-description table {
+  background: #f2f2f2;
+}
+
+/* table */
+.not-front #content-wrap .views-table img {
+  border: none;
+	padding: 0;
+}
+
+.not-front #content-wrap .views-field-field-imagestudy {
+  width: 15%;
 }
