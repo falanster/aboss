@@ -44,6 +44,12 @@
 	color: #222222;
 }
 
+.not-front .group-common .group-description h2 {
+  font-size: 1.3em;
+	font-weight: 400;
+
+}
+
 .node-type-studyevent .group-right,
 .node-type-article  .group-right {
   width: 25%;
