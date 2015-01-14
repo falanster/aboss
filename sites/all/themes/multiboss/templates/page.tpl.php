@@ -183,7 +183,18 @@
           <?php if (!empty($tabs['#primary'])): ?><div class="tabs-wrapper clr"><?php print render($tabs); ?></div><?php endif; ?>
           <?php print render($page['help']); ?>
           <?php if ($action_links): ?><ul class="action-links"><?php print render($action_links); ?></ul><?php endif; ?>
-          <?php print render($page['content']); ?>
+<?php
+  if($is_front){
+    $page['content']['system_main']['default_message'] = array(); // This will remove the 'No front page content has been created yet.'
+     
+
+//     var_dump($page['content']['system_main']);
+  }
+?>
+
+	  <?php //if (!drupal_is_front_page()) { ?>
+            <?php print render($page['content']); ?>
+          <?php //} ?>
         </div>
       </section>
 

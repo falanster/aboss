@@ -106,3 +106,15 @@ function multiboss_page_alter($page) {
   );
   drupal_add_html_head($viewport, 'viewport');
 }
+
+function multiboss_process_page(&$var) {
+$is_front = $var['is_front'];
+  if($is_front) {
+    $node = menu_get_object();
+    if(!$node) {
+      $var['title'] = '';
+      unset($var['page']['content_top']['system_main']['default_message']);
+    }
+  }
+  return;
+}

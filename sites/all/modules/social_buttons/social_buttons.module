@@ -144,9 +144,10 @@ function social_buttons_theme($existing, $type, $theme, $path) {
  */
 function theme_social_buttons($buttons) {
   drupal_add_css(drupal_get_path('module', 'social_buttons') . '/social_buttons.css');
+
   $output = '<div class="social-bottons">';
   foreach ($buttons as $button) {
-    if (!empty($button)) {
+    if (!empty($button) && $button !== 'social_buttons') {
       $output .= '<span class="social-botton">' . $button . '</span>';
     }
   }
