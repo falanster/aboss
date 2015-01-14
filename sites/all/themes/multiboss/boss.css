@@ -14,7 +14,8 @@
 }
 
  .page-node #main #content-wrap {
-  padding-bottom: 20px;
+  padding-bottom: 30px;
+	padding-top: 20px;
 }
 
 .quicktabs-style-zen {
@@ -243,7 +244,7 @@ margin-right: 23px;
   width: auto;
 }
 
-.node-type-studyevent #content-wrap img {
+.node-type-studyevent #content-wrap .group-common img {
   float: left;  
 }    
 
