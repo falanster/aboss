@@ -11,16 +11,16 @@ $CONFIG = array(
 	// Get pictures from WORLDWIDE by tag name. 
 	// Use this options only if you want show pictures of other users. 
 	// Important! Profile avatar and statistic will be hidden.
-	'HASHTAG' => '#bossby',
+	// 'HASHTAG' => '#bossby OR #BOSSBY OR @belarusboss',
 
 	// Random order of pictures [ true / false ]
-	'imgRandom' => true,
+	'imgRandom' => false,
 
 	// How many pictures widget will get from Instagram?
 	'imgCount' => 30,
 
 	// Cache expiration time (hours)
-	'cacheExpiration' => 6,
+	'cacheExpiration' => 2,
 
 	// Default language [ ru / en ] or something else from lang directory.
 	'langDefault' => 'ru',

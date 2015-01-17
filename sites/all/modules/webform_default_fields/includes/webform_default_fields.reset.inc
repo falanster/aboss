@@ -152,52 +152,47 @@ function webform_default_fields_reset_components_submit($form, &$form_state) {
 }
 
 function webform_default_fields_reset_global_submit($form, &$form_state) {
-  $node = node_load($form_state['values']['nid'], NULL, TRUE);
+  $nid = $form_state['values']['nid'];
+  $node = node_load($nid, NULL, TRUE);
   $type_url_str = str_replace('-', '_', $node->type);
   $default_nid = _webform_default_fields_container_node($type_url_str);
   $default_node = node_load($default_nid, NULL, TRUE);
   $resets = $form_state['input']['reset_global']['reset_sector'];
   if (isset($resets['settings'])) {
-    unset($default_node->webform['nid']);
-    if (!isset($resets['components'])) {
-      unset($default_node->webform['components']);
-      unset($default_node->webform['conditionals']);
-    }
-    elseif (!isset($form_state['input']['conditionals'])) {
-      unset($default_node->webform['conditionals']);
-    }
-    if (!isset($resets['emails'])) {
-      unset($default_node->webform['emails']);
-    }
-    $node->webform = array_merge($node->webform, $default_node->webform);
-
+    $main_webform = $default_node->webform;
+    $sub_webform = $node->webform;
+    $main_webform['nid']=$nid;
+    $settings_webform = TRUE;
   }
   else {
-    if (isset($resets['components'])) {
-      $node->webform['components'] = $default_node->webform['components'];
-      foreach ($node->webform['components'] as &$component) {
-        $component['nid'] = $node->nid;
-      }
-      if (isset($resets['conditionals'])) {
-        $node->webform['conditionals'] = $default_node->webform['conditionals'];
-        foreach ($node->webform['conditionals'] as &$component) {
-          foreach ($component['rules'] as &$rule) {
-            $rule['nid'] = $node->nid;
-          }
-          $component['nid'] = $node->nid;
-        }
-      }
-      else {
-        $node->webform['conditionals'] = array();
-      }
+    $main_webform = $node->webform;
+    $sub_webform = $default_node->webform;
+    $settings_webform = FALSE;
+  }
+  unset ($resets['settings']);
+  foreach ($resets as $res_key => &$reset) {
+    $reset = (isset($reset)) ? TRUE : FALSE;
+    if ($reset != $settings_webform) {
+      $main_webform[$res_key] = webform_default_fields_reset_nid($sub_webform[$res_key], $nid);
     }
-    if (isset($resets['emails'])) {
-      $node->webform['emails'] = $default_node->webform['emails'];
-      foreach ($node->webform['emails'] as &$component) {
-        $component['nid'] = $node->nid;
-      }
+    else {
+      $main_webform[$res_key] = webform_default_fields_reset_nid($main_webform[$res_key], $nid);
     }
   }
+  if ($resets['components']) {
+    $conditionals = (isset($form_state['input']['conditionals'])) ? TRUE : FALSE;
+    if ($conditionals) {
+      $main_webform['conditionals'] = $default_node->webform['conditionals'];
+      foreach ($main_webform['conditionals'] as &$conditional) {
+        $conditional['rules'] = webform_default_fields_reset_nid($conditional['rules'], $nid);
+        $component['nid'] = $nid;
+      }
+    }
+    else {
+      $main_webform['conditionals'] = array();
+    }
+  }
+  $node->webform = $main_webform;
   node_save($node);  
 }
 
@@ -254,4 +249,11 @@ function webform_default_fields_reset_components_list($node, $default_node) {
     }
   }
   return array_merge($default_node->webform['components'], $node->webform['components']);
+}
+
+function webform_default_fields_reset_nid($elements, $nid) {
+  foreach ($elements as &$element) {
+    $element['nid'] = $nid;
+  }
+  return $elements;
 }
