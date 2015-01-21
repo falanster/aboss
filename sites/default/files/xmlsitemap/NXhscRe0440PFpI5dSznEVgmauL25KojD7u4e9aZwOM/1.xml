@@ -449,7 +449,6 @@
 <url><loc>http://aboss.by/en/tegi/vuz</loc></url>
 <url><loc>http://aboss.by/en/tegi/istoriya</loc></url>
 <url><loc>http://aboss.by/en/o-boss/studencheskiy-parlament</loc><priority>1.0</priority></url>
-<url><loc>http://aboss.by/en/stati/stati</loc><priority>0.7</priority></url>
 <url><loc>http://aboss.by/en/organizacii/evropeyskie-obrazovatelnye-programmy</loc></url>
 <url><loc>http://aboss.by/en/tegi/rabota</loc></url>
 <url><loc>http://aboss.by/en/tegi/trudoustroystvo</loc></url>
@@ -587,7 +586,7 @@
 <url><loc>http://aboss.by/ru/normativno-pravovye-dokumenty-po-raspredeleniyu</loc><lastmod>2014-12-05T22:38Z</lastmod><changefreq>monthly</changefreq><priority>1.0</priority></url>
 <url><loc>http://aboss.by/ru/kak-uchitsya-ne-vyezzhaya-iz-strany-v-drugom</loc><lastmod>2015-01-10T16:49Z</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
 <url><loc>http://aboss.by/ru/raspredelenie-i-tolko</loc><lastmod>2015-01-10T16:50Z</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
-<url><loc>http://aboss.by/ru/lidery-studencheskogo-samoupravleniya-v-mogileve</loc><lastmod>2015-01-11T09:01Z</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
+<url><loc>http://aboss.by/ru/lidery-studencheskogo-samoupravleniya-v-mogileve</loc><lastmod>2015-01-11T09:01Z</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
 <url><loc>http://aboss.by/ru/open-space-boss</loc><lastmod>2015-01-10T16:50Z</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
 <url><loc>http://aboss.by/ru/raspredelenie-dostoyno-zhit-nelzya-smiritsya-0</loc><lastmod>2015-01-10T16:50Z</lastmod><changefreq>weekly</changefreq></url>
 <url><loc>http://aboss.by/ru/vse-studenty-sdelayut-eto-prakticheskiy-3-h</loc><lastmod>2015-01-10T16:49Z</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
@@ -627,7 +626,7 @@
 <url><loc>http://aboss.by/ru/pochemu-my-molchim-kogda-nado-krichat</loc><lastmod>2015-01-10T16:49Z</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
 <url><loc>http://aboss.by/ru/studencheskoe-samoupravlenie-v-belarusi-ocenka</loc><lastmod>2015-01-10T16:49Z</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
 <url><loc>http://aboss.by/ru/priglashaem-sponsirovat-studencheskuyu</loc><lastmod>2015-01-10T16:49Z</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
-<url><loc>http://aboss.by/ru/kontakty-boss</loc><lastmod>2014-12-13T11:43Z</lastmod><changefreq>monthly</changefreq></url>
+<url><loc>http://aboss.by/ru/kontakty-boss</loc><lastmod>2015-01-14T19:47Z</lastmod><changefreq>hourly</changefreq></url>
 <url><loc>http://aboss.by/ru/opros-izuchenie-obshchestvennoy-aktivnosti</loc><lastmod>2015-01-10T16:49Z</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
 <url><loc>http://aboss.by/ru/masterskaya-organizacionnogo-razvitiya</loc><lastmod>2015-01-10T16:49Z</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
 <url><loc>http://aboss.by/ru/otchet-s-treninga-peregovory-vol1</loc><lastmod>2015-01-10T16:49Z</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
@@ -645,7 +644,7 @@
 <url><loc>http://aboss.by/ru/studencheskoe-samoupravlenie-v-belarusi-problema</loc><lastmod>2015-01-10T16:49Z</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
 <url><loc>http://aboss.by/ru/obrazovatelnyy-seminar-universitet-vchera</loc><lastmod>2015-01-10T16:49Z</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
 <url><loc>http://aboss.by/ru/korporativnaya-kultura-ot-banalnyh-deystviy-k</loc><lastmod>2015-01-10T16:49Z</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
-<url><loc>http://aboss.by/ru/protorennyy-put-ili-sobstvennye-shishki</loc><lastmod>2015-01-11T17:41Z</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
+<url><loc>http://aboss.by/ru/protorennyy-put-ili-sobstvennye-shishki</loc><lastmod>2015-01-11T17:41Z</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
 <url><loc>http://aboss.by/ru/istoriya-boss</loc><lastmod>2014-01-08T22:22Z</lastmod><changefreq>yearly</changefreq><priority>1.0</priority></url>
 <url><loc>http://aboss.by/ru/21-fevralya-mezhdunarodnyy-den-rodnogo-yazyka</loc><lastmod>2015-01-10T16:49Z</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
 <url><loc>http://aboss.by/ru/motivaciya-studentov-i-ne-tolko</loc><lastmod>2015-01-10T16:49Z</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
@@ -653,6 +652,7 @@
 <url><loc>http://aboss.by/ru/forum-teatr-studenty-rabota-vs-ucheba</loc><lastmod>2015-01-10T16:49Z</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
 <url><loc>http://aboss.by/ru/zhenskoe-liderstvo-studenty-stereotipy-i</loc><lastmod>2015-01-10T16:49Z</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
 <url><loc>http://aboss.by/ru/transformaciya-meropriyatiy-ili-post-reliz</loc><lastmod>2015-01-10T16:49Z</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+<url><loc>http://aboss.by/ru/stati/stati</loc><priority>0.7</priority></url>
 <url><loc>http://aboss.by/it/la-storia-di-boss</loc><lastmod>2014-01-08T22:22Z</lastmod><changefreq>yearly</changefreq><priority>1.0</priority></url>
 <url><loc>http://aboss.by/it/la-fratellanza-dei-organizzatori-del-governo-d-0</loc><lastmod>2014-01-08T21:54Z</lastmod><changefreq>yearly</changefreq><priority>1.0</priority></url>
 <url><loc>http://aboss.by/it/la-fratellanza-dei-organizzatori-del-governo-dei</loc><lastmod>2014-01-08T21:53Z</lastmod><changefreq>yearly</changefreq><priority>1.0</priority></url>
@@ -663,7 +663,7 @@
 <url><loc>http://aboss.by/en/10-reasons-to-fall-in-love-with-the-boss</loc><lastmod>2013-06-09T21:03Z</lastmod><changefreq>yearly</changefreq><priority>1.0</priority></url>
 <url><loc>http://aboss.by/en/lithuania-student-self-governance</loc><lastmod>2015-01-10T16:49Z</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
 <url><loc>http://aboss.by/en/lithuania-student-self-governance-2</loc><lastmod>2015-01-10T16:49Z</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
-<url><loc>http://aboss.by/en/contact-info</loc><lastmod>2014-12-13T11:43Z</lastmod><changefreq>monthly</changefreq></url>
+<url><loc>http://aboss.by/en/contact-info</loc><lastmod>2015-01-14T19:47Z</lastmod><changefreq>hourly</changefreq></url>
 <url><loc>http://aboss.by/en/annual-boss-reporting-elective-conference</loc><lastmod>2015-01-10T16:50Z</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
 <url><loc>http://aboss.by/en/raspredelenie-i-tolko</loc><lastmod>2014-04-23T08:45Z</lastmod><changefreq>yearly</changefreq><priority>0.9</priority></url>
 <url><loc>http://aboss.by/en/dorogaya-redakciya</loc><lastmod>2014-04-21T07:33Z</lastmod><changefreq>yearly</changefreq><priority>0.9</priority></url>
@@ -695,7 +695,7 @@
 <url><loc>http://aboss.by/be/zalataya-vosen-z-bass</loc><lastmod>2015-01-10T16:50Z</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
 <url><loc>http://aboss.by/be/litva-kaardynaty-ctudenckae-samakiravanne-2</loc><lastmod>2015-01-10T16:49Z</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
 <url><loc>http://aboss.by/be/karparatyunaya-kultura-analiz-uzrounya</loc><lastmod>2015-01-10T16:50Z</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
-<url><loc>http://aboss.by/be/kantaktnaya-infarmacyya</loc><lastmod>2014-12-13T11:43Z</lastmod><changefreq>monthly</changefreq></url>
+<url><loc>http://aboss.by/be/kantaktnaya-infarmacyya</loc><lastmod>2015-01-14T19:47Z</lastmod><changefreq>hourly</changefreq></url>
 <url><loc>http://aboss.by/be/skaz-pra-toe-yak-studenckiya-lidary-nad-sozham</loc><lastmod>2015-01-10T16:50Z</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
 <url><loc>http://aboss.by/be/myanyaem-svet-razam-z-maysternyay-studenckaga</loc><lastmod>2015-01-10T16:50Z</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
 <url><loc>http://aboss.by/be/videarolik-prablemy-vysheyshay-adukacyi-i</loc><lastmod>2015-01-10T16:50Z</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
@@ -706,7 +706,7 @@
 <url><loc>http://aboss.by/be/bassu-byc</loc><lastmod>2015-01-10T16:49Z</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
 <url><loc>http://aboss.by/be/kanferencyya-studenckaga-samakiravannya</loc><lastmod>2015-01-10T16:49Z</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
 <url><loc>http://aboss.by/be/21-lyutaga-mizhnarodny-dzen-rodnay-movy</loc><lastmod>2015-01-10T16:49Z</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
-<url><loc>http://aboss.by/be/prakladzeny-shlyah-ci-ulasnyya-shyshki</loc><lastmod>2015-01-11T17:41Z</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
+<url><loc>http://aboss.by/be/prakladzeny-shlyah-ci-ulasnyya-shyshki</loc><lastmod>2015-01-11T17:41Z</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
 <url><loc>http://aboss.by/be/5-pryyomau-paspyahovaga-zapaminannya</loc><lastmod>2015-01-10T16:49Z</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
 <url><loc>http://aboss.by/be/dze-shukac-mesca-pracy</loc><lastmod>2015-01-10T16:49Z</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
 <url><loc>http://aboss.by/be/it-kampaniya-veb-mir-spansavala-konkurs</loc><lastmod>2015-01-10T16:49Z</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>

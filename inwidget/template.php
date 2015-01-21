@@ -230,10 +230,7 @@ if(!is_object($inWidget->data)) die('<b style="color:red;">Cache file contains p
 		}
 		else echo '<div class="empty">'.$inWidget->lang['imgEmpty'].'</div>';
 	?>
-</div>
-<div class='copyright'>
-	&copy; <a href='http://inwidget.ru' target='_blank' rel='nofollow' title='Instagram widget for your site!'>inwidget.ru</a>
-</div>
+
 </body>
 </html>
 <!-- 

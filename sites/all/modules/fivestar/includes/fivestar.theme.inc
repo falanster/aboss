@@ -30,6 +30,8 @@ function theme_fivestar_preview_widget($variables) {
     '#stars' => 5,
     '#auto_submit' => FALSE,
     '#allow_clear' => TRUE,
+    '#allow_revote' => TRUE,
+    '#allow_ownvote' => TRUE,
     '#widget' => array(
       'name' => isset($variables['name']) ? $variables['name'] : 'default',
       'css' => isset($variables['css']) && $variables['css'] != 'default' ? $variables['css'] : FALSE,
@@ -38,8 +40,8 @@ function theme_fivestar_preview_widget($variables) {
 
   // Attach necessary JS settings
   $settings = array(
-    'titleUser' => t('Your rating') .': ',
-    'titleAverage' => t('Average') .': ',
+    'titleUser' => t('Your rating') . ': ',
+    'titleAverage' => t('Average') . ': ',
     'feedbackSavingVote' => t('Saving your vote...'),
     'feedbackVoteSaved' => t('Your vote has been saved.'),
     'feedbackDeletingVote' => t('Deleting your vote...'),
@@ -67,6 +69,8 @@ function theme_fivestar_preview($variables) {
   $settings = array(
     'stars' => $stars,
     'allow_clear' => $unvote,
+    'allow_revote' => $revote,
+    'allow_ownvote' => $ownvote,
     'style' => $style,
     'text' => $text,
     'title' => $title,
@@ -85,7 +89,7 @@ function theme_fivestar_preview($variables) {
 }
 
 function theme_fivestar_preview_wrapper($variables) {
-  return '<div class="fivestar-preview fivestar-preview-'. $variables['type'] .'">'. $variables['content'] .'</div>';
+  return '<div class="fivestar-preview fivestar-preview-' . $variables['type'] . '">' . $variables['content'] . '</div>';
 }
 
 /**
@@ -184,12 +188,14 @@ function theme_fivestar_static($variables) {
   $stars = $variables['stars'];
   $tag = $variables['tag'];
   $widget = $variables['widget'];
-  if($widget['name'] != 'default') {
+  if ($widget['name'] != 'default') {
+    $path = drupal_get_path('module', 'fivestar');
+    drupal_add_css($path . '/css/fivestar.css');
     drupal_add_css($widget['css']);
   }
 
   $output = '<div class="fivestar-' . $widget['name'] . '">';
-  $output .= '<div class="fivestar-widget-static fivestar-widget-static-'. $tag .' fivestar-widget-static-'. $stars . ' clearfix">';
+  $output .= '<div class="fivestar-widget-static fivestar-widget-static-' . $tag . ' fivestar-widget-static-' . $stars . ' clearfix">';
   if (empty($stars)) {
     $stars = 5;
   }
@@ -200,10 +206,10 @@ function theme_fivestar_static($variables) {
     $zebra = ($n % 2 == 0) ? 'even' : 'odd';
     $first = $n == 1 ? ' star-first' : '';
     $last = $n == $stars ? ' star-last' : '';
-    $output .= '<div class="star star-'. $n .' star-'. $zebra . $first . $last .'">';
+    $output .= '<div class="star star-' . $n . ' star-' . $zebra . $first . $last . '">';
     if ($rating < $star_value && $rating > $prev_star_value) {
       $percent = (($rating - $prev_star_value) / ($star_value - $prev_star_value)) * 100;
-      $output .= '<span class="on" style="width: '. $percent .'%">';
+      $output .= '<span class="on" style="width: ' . $percent . '%">';
     }
     elseif ($rating >= $star_value) {
       $output .= '<span class="on">';
@@ -245,39 +251,57 @@ function theme_fivestar_summary($variables) {
   $output = '';
   $div_class = '';
   $average_rating_microdata = '';
+  $rating_count_microdata = '';
   if (isset($user_rating)) {
     $div_class = isset($votes) ? 'user-count' : 'user';
     $user_stars = round(($user_rating * $stars) / 100, 1);
-    $output .= '<span class="user-rating">'. t('Your rating: <span>!stars</span>', array('!stars' => $user_rating ? $user_stars : t('None'))) .'</span>';
+    $output .= '<span class="user-rating">' . t('Your rating: <span>!stars</span>', array('!stars' => $user_rating ? $user_stars : t('None'))) . '</span>';
   }
   if (isset($user_rating) && isset($average_rating)) {
     $output .= ' ';
   }
   if (isset($average_rating)) {
-    $div_class = isset($votes) ? 'average-count' : 'average';
+    if (isset($user_rating)) {
+      $div_class = 'combo';
+    }
+    else {
+      $div_class = isset($votes) ? 'average-count' : 'average';
+    }
+
     $average_stars = round(($average_rating * $stars) / 100, 1);
     if (!empty($microdata['average_rating']['#attributes'])) {
       $average_rating_microdata = drupal_attributes($microdata['average_rating']['#attributes']);
     }
-    $output .= '<span class="average-rating">'. t('Average: <span !microdata>!stars</span>', array('!stars' => $average_stars, '!microdata' => $average_rating_microdata)) .'</span>';
-  }
-  if (isset($user_rating) && isset($average_rating)) {
-    $div_class = 'combo';
+    $output .= '<span class="average-rating">' . t('Average: !stars',
+      array('!stars' => "<span $average_rating_microdata>$average_stars</span>")) . '</span>';
   }
 
-  if (isset($votes) && !(isset($user_rating) || isset($average_rating))) {
-    $output .= ' <span class="total-votes">'. format_plural($votes, '<span>@count</span> vote', '<span>@count</span> votes') .'</span>';
-    $div_class = 'count';
-  }
-  elseif (isset($votes)) {
-    $output .= ' <span class="total-votes">('. format_plural($votes, '<span>@count</span> vote', '<span>@count</span> votes') .')</span>';
+  if (isset($votes)) {
+    if (!isset($user_rating) && !isset($average_rating)) {
+      $div_class = 'count';
+    }
+    if ($votes === 0) {
+      $output = '<span class="empty">'. t('No votes yet') .'</span>';
+    }
+    else {
+      if (!empty($microdata['rating_count']['#attributes'])) {
+        $rating_count_microdata = drupal_attributes($microdata['rating_count']['#attributes']);
+      }
+      // We don't directly substitute $votes (i.e. use '@count') in format_plural,
+      // because it has a span around it which is not translatable.
+      $votes_str = format_plural($votes, '!cnt vote', '!cnt votes', array(
+        '!cnt' => '<span ' . $rating_count_microdata . '>' . intval($votes) . '</span>'));
+      if (isset($user_rating) || isset($average_rating)) {
+        $output .= ' <span class="total-votes">(' . $votes_str . ')</span>';
+      }
+      else {
+        $output .= ' <span class="total-votes">' . $votes_str . '</span>';
+      }
+    }
   }
 
-  if ($votes === 0) {
-    $output = '<span class="empty">'. t('No votes yet') .'</span>';
-  }
 
-  $output = '<div class="fivestar-summary fivestar-summary-'. $div_class . '">'. $output .'</div>';
+  $output = '<div class="fivestar-summary fivestar-summary-' . $div_class . '">' . $output . '</div>';
   return $output;
 }
 

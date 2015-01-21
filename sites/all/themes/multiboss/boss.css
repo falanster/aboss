@@ -132,7 +132,7 @@
   margin-bottom: 15px;
 }
 
-.page-node .language-icon {
+.page-node footer .language-icon {
   display: none;
 }
 
@@ -281,6 +281,7 @@ margin-right: 23px;
 .group-left .field-name-field-tags,
 .page-node .field-name-field-tags {
   margin-top: 10px;
+  float: left;
 }
 
  .node-type-studyevent  #block-views-trainer-block .view-trainer {
