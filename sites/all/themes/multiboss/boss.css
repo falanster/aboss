@@ -372,6 +372,7 @@ margin-right: 23px;
 .not-front #content-wrap .views-table img {
   border: none;
 	padding: 0;
+	vertical-align: top;
 }
 
 .not-front #content-wrap .views-field-field-imagestudy {
